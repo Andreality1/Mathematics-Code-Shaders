@@ -1,0 +1,1061 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <head>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" 
+            onload="renderMathInElement(document.body);"></script>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body style="background-color: #000000 ">
+<div class="article">
+
+<h1>
+<a>
+		<strong>Matemathics Explanations of Derivatives</strong>
+	</a>
+</h1>
+
+<h1>
+	<a>
+		<strong>Math Explanation CODE relations</strong>
+	</a>
+</h1>	
+
+<p class="siteSub">
+
+From Andraelity, how CODE using math. 
+
+</p>
+
+<p class="roleNote">
+
+    In thy following lines we are going to verify or create the connexion that would allow us to unite code with mathematics
+
+</p>
+
+<div class="articleRight">
+    
+    <div  class="articleRightInner">
+
+      <img width="500"  src="Img/DerivativeFormula.png" class="center">
+      <br>  
+<a target = "_blank" href="https://www.youtube.com/channel/UC-4AaN4M3Sq1lY6NVZnfaEw">Youtube/Andreality</a>
+</div>
+</div>
+<p>
+	<strong>Derivatives</strong>
+
+We are going to detail information and ideas that could help us clarify from which place all this properties came from in a more cohesive and organized way to validate that every single proof that we set 
+is presented in an order that could help us understand the reasons of equality that could elevate in the future to a order of probabilities, the orders we are structuring right now are base entirely on very well
+define amounts, that we could follow in a relationship of quantity, a quantity of numbers that we could start to count, and keep counting till we are able to reason about more inmense and overlimited set of items.
+
+</p>
+
+
+
+        
+
+<div class="contentsPanel">
+    <div class="contentsHeader">Contents</div>
+    <ul>
+
+<li><span>0.</span><a href="#Derivatives"> Derivatives</a></li>
+
+
+</ul>
+</div>
+
+
+<!-- 
+______   _______  _______ _________          _______ __________________          _______ 
+(  __  \ (  ____ \(  ____ )\__   __/|\     /|(  ___  )\__   __/\__   __/|\     /|(  ____ \
+| (  \  )| (    \/| (    )|   ) (   | )   ( || (   ) |   ) (      ) (   | )   ( || (    \/
+| |   ) || (__    | (____)|   | |   | |   | || (___) |   | |      | |   | |   | || (__    
+| |   | ||  __)   |     __)   | |   ( (   ) )|  ___  |   | |      | |   ( (   ) )|  __)   
+| |   ) || (      | (\ (      | |    \ \_/ / | (   ) |   | |      | |    \ \_/ / | (      
+| (__/  )| (____/\| ) \ \_____) (___  \   /  | )   ( |   | |   ___) (___  \   /  | (____/\
+(______/ (_______/|/   \__/\_______/   \_/   |/     \|   )_(   \_______/   \_/   (_______/
+
+-->
+
+
+
+
+<h2 style="font-size: 50px;" id ="EulersIdentity"><strong>Eulers Identity</strong></h2>
+<!-- <h1><b><a href="https://andraelity.github.io/WebPageVideoTest/" > https://andraelity.github.io/WebPageVideoTest/ </a></b></h1> -->
+<!-- <h1><b><a> Factorial Identification </a></b></h1> -->
+
+
+
+<!-- 
+_______ _________ _        _______    _______  _        ______     _______  _______  _______ _________ _        _______ 
+(  ____ \\__   __/( (    /|(  ____ \  (  ___  )( (    /|(  __  \   (  ____ \(  ___  )(  ____ \\__   __/( (    /|(  ____ \
+| (    \/   ) (   |  \  ( || (    \/  | (   ) ||  \  ( || (  \  )  | (    \/| (   ) || (    \/   ) (   |  \  ( || (    \/
+| (_____    | |   |   \ | || (__      | (___) ||   \ | || |   ) |  | |      | |   | || (_____    | |   |   \ | || (__    
+(_____  )   | |   | (\ \) ||  __)     |  ___  || (\ \) || |   | |  | |      | |   | |(_____  )   | |   | (\ \) ||  __)   
+      ) |   | |   | | \   || (        | (   ) || | \   || |   ) |  | |      | |   | |      ) |   | |   | | \   || (      
+/\____) |___) (___| )  \  || (____/\  | )   ( || )  \  || (__/  )  | (____/\| (___) |/\____) |___) (___| )  \  || (____/\
+\_______)\_______/|/    )_)(_______/  |/     \||/    )_)(______/   (_______/(_______)\_______)\_______/|/    )_)(_______/
+
+-->
+
+<hr>
+<hr>
+<h1 style="font-size: 40px;"><b> Sine and Cosine </b></h1>
+
+<br>
+<img  src="Img/SineAndCosine.png" style="display: block; margin: 0 auto;">
+<br>
+
+<div style = "font-size: 21px">
+
+$$\\[5ex]$$
+  
+$$\text{if Point } A = (x,y) = (1,0), \text{ then } \cos(A) = 1 \\[2ex]$$
+
+$$\\[5ex]$$
+
+$$\text{if Point } A = (x,y) = (1,0), \text{ then } \sin(A) = 0 \\[2ex]$$
+
+$$\\[5ex]$$
+
+$$\text{if Point } B = (x,y) = (0,1), \text{ then } \sin(B) = 1 \\[2ex]$$
+
+$$\\[5ex]$$
+
+$$\text{if Point } B = (x,y) = (0,1), \text{ then } \cos(B) = 0 \\[2ex]$$
+
+$$\\[5ex]$$
+
+</div>
+<br>
+<img  src="Img/SinAndCos45Degree.png" style="display: block; margin: 0 auto;">
+<br>
+
+<div style = "font-size: 21px">
+$$\\[5ex]$$
+
+$$\text{If } \theta = 45^\circ = \frac{\pi}{4},\hspace{5pt} C = (0.707106811865, 0.707106811865)$$
+
+$$\\[3ex]$$
+
+$$\text{If } C = (0.707106811865, 0.707106811865),\hspace{5pt} C, sin = C.y = 0.707106811865$$
+
+$$\\[3ex]$$
+
+$$\text{If } C = (0.707106811865, 0.707106811865),\hspace{5pt} C, \cos = C.x = 0.707106811865$$
+
+$$\\[5ex]$$
+
+$$\text{If } \theta = 45^\circ = \frac{\pi}{4} ,\hspace{5pt} \sin(\theta) = 0.707106811865$$
+
+$$\\[5ex]$$
+
+$$\text{If } \theta = 45^\circ = \frac{\pi}{4},\hspace{5pt} \cos(\theta) = 0.707106811865$$
+
+$$\\[5ex]$$
+
+$$|\vec{C}| = \sqrt{x^2 + y^2}$$
+
+$$\\[3ex]$$
+
+$$\text{hipotenuse} = \hspace{3pt} h \hspace{3pt} = \sqrt{\text{base}^2 + \text{height}^2} \implies |\vec{C}| = \sqrt{x^2 + y^2}$$
+
+$$\\[5ex]$$
+
+$$|\vec{C}| = \sqrt{x^2 + y^2} = \hspace{3pt} 1 \hspace{3pt} = 
+\sqrt{(\cos 45^\circ)^2 + (\sin 45^\circ)^2} = \sqrt{\left(\cos \left(\frac{\pi}{4}\right)\right)^2 + \left(\sin \left(\frac{\pi}{4}\right)\right)^2}$$
+
+</div>
+
+
+<br>
+<img  src="Img/SinUnitCircle3.png"  style="display: block; margin: 0 auto; ">
+<br>
+<br>
+<img  src="Img/CosUnitCircle.png" style="display: block; margin: 0 auto; width: 65%;">
+<br>
+<br>
+<br>
+
+
+<hr>
+<div style = "font-size: 21px">
+        $$\LARGE\text{Identity \#1}$$
+</div>        
+<hr>
+
+<div style = "font-size: 21px">
+        $$\\[5ex]$$
+
+
+$$\boxed{\quad\cos(A + B) = \cos(A)\cos(B) - \sin(A)\sin(B)\quad} \\[5ex]$$
+
+$$\\[5ex]$$
+
+$$\text{Point } P_0: \text{At angle } 0 \implies (x, y) = (1, 0)$$
+
+$$\\[5ex]$$
+
+$$\text{Point } P_1: \text{At angle } B \implies (x, y) = (\cos B, \sin B)$$
+
+$$\\[5ex]$$
+
+$$\text{Point } P_2: \text{At angle } -A \implies (x, y) = (\cos(-A), \sin(-A)), \text{ which simplifies to } (\cos A, -\sin A)$$
+
+$$\\[5ex]$$
+
+$$\text{Point } P_3: \text{At angle } A+B \implies (x, y) = (\cos(A+B), \sin(A+B))$$
+
+</div>
+
+<br>
+<br>
+<img  src="Img/COSAplusB.png"  style="display: block; margin: 0 auto; width: 60%;">
+
+
+
+<div style = "font-size: 21px">
+$$\\[5ex]$$
+
+$$d^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2 \quad \text{(derived from } a^2 + b^2 = c^2\text{)}$$
+
+$$\\[5ex]$$
+
+$$(d_{P_1 P_2})^2 = (d_{P_0 P_3})^2$$
+
+$$\\[5ex]$$
+
+$$\text{For } P_0 \text{ to } P_3:$$
+
+$$\\[5ex]$$
+
+$$(d_{P_0 P_3})^2 = (\cos(A+B) - 1)^2 + (\sin(A+B) - 0)^2$$
+
+$$\\[5ex]$$
+
+$$(d_{P_0 P_3})^2 = \cos^2(A+B) - 2\cos(A+B) + 1 + \sin^2(A+B)$$
+
+$$\\[5ex]$$
+
+$$\sin^2\theta + \cos^2\theta = 1$$
+
+$$\\[5ex]$$
+
+$$(d_{P_0 P_3})^2 = \underbrace{\cos^2(A+B) + \sin^2(A+B)}_{1} - 2\cos(A+B) + 1$$
+
+$$\\[5ex]$$
+
+$$(d_{P_0 P_3})^2 = 1 - 2\cos(A+B) + 1$$
+
+$$\\[5ex]$$
+
+$$(d_{P_0 P_3})^2 = 2 - 2\cos(A + B)$$
+
+$$\\[5ex]$$
+
+$$\text{For } P_1 \text{ to } P_2:$$
+
+$$\\[5ex]$$
+
+$$(d_{P_1 P_2})^2 = (\cos B - \cos A)^2 + (\sin B - (-\sin A))^2$$
+
+$$\\[5ex]$$
+
+$$(d_{P_1 P_2})^2 = (\cos B - \cos A)^2 + (\sin B + \sin A)^2$$
+
+$$\\[5ex]$$
+
+$$(d_{P_1 P_2})^2 = (\cos^2 B - 2\cos A \cos B + \cos^2 A) + (\sin^2 B + 2\sin A \sin B + \sin^2 A)$$
+
+$$\\[5ex]$$
+
+$$(\cos^2 B + \sin^2 B = 1) \text{ and } (\cos^2 A + \sin^2 A = 1)$$
+
+$$\\[5ex]$$
+
+$$(d_{P_1 P_2})^2 = \underbrace{\cos^2 B + \sin^2 B}_{1} + \underbrace{\cos^2 A + \sin^2 A}_{1} - 2\cos A \cos B + 2\sin A \sin B$$
+
+$$\\[5ex]$$
+
+$$(d_{P_1 P_2})^2 = 1 + 1 - 2\cos A \cos B + 2\sin A \sin B$$
+
+$$\\[5ex]$$
+
+$$(d_{P_1 P_2})^2 = 2 - 2\cos A \cos B + 2\sin A \sin B$$
+
+$$\\[5ex]$$
+
+$$(d_{P_0 P_3})^2 = (d_{P_1 P_2})^2 $$
+
+$$\\[5ex]$$
+
+$$2 - 2\cos(A+B) = 2 - 2\cos A \cos B + 2\sin A \sin B$$
+
+$$\\[5ex]$$
+
+$$-2\cos(A+B) = -2\cos A \cos B + 2\sin A \sin B$$
+
+$$\\[5ex]$$
+
+$$\large \boxed {\quad \cos(A+B) = \cos A \cos B - \sin A \sin B \quad }$$
+
+$$\\[5ex]$$
+
+</div>
+
+<hr>
+<div style = "font-size: 21px">
+    
+    $$\LARGE\text{Identity \#2}$$
+</div>        
+<hr>
+
+
+<div style = "font-size: 21px">
+    $$\\[5ex]$$
+
+    $$\boxed{\large \quad \mathbf{\sin(x+h) = \sin(x)\cos(h) + \cos(x)\sin(h)}\quad}$$
+</div>        
+
+
+<img  src="Img/Inverted_SinAplusB.png"  style="display: block; margin: 0 auto; width: 60%;">
+
+
+<div style = "font-size: 21px">
+
+        <!-- $$\text{1. The Geometric Setup}$$$$\text{Imagine two angles, } \alpha \text{ (which we'll call } x\text{) and } \beta \text{ (which we'll call } h\text{), stacked on top of each other:}$$$$\text{Draw angle } x \text{ from the } x\text{-axis.}$$$$\text{Draw angle } h \text{ starting from the terminal side of } x\text{.}$$$$\text{The total angle from the } x\text{-axis is } (x + h)\text{.}$$$$\text{We place a point } P \text{ on the terminal side of the total angle such that the distance from the origin } O \text{ to } P \text{ is 1 unit } (OP = 1)\text{.}$$ -->
+
+
+</div>        
+
+<!-- <div style="width: 70%; margin: auto; border: 2px solid #555; padding: 15px; border-radius: 8px; margin: 10px 0; text-align: center;"> -->
+<div style="width: 60%; overflow-x: auto; overflow-y: hidden; margin: auto; border: 1px solid #00000000; padding: 10px; border-radius: 8px; box-sizing: border-box;">
+    
+    $$\begin{aligned}
+    &\text{1. The Geometric Setup} \\
+    &\text{Imagine two angles, } \alpha \text{ (which we'll call } x\text{) and } \beta \text{ (which we'll call } h\text{), stacked on top of each other:} \\
+    &\text{Draw angle } x \text{ from the } x\text{-axis.} \\
+    &\text{Draw angle } h \text{ starting from the terminal side of } x\text{.} \\
+    &\text{The total angle from the } x\text{-axis is } (x + h)\text{.} \\
+    &\text{We place a point } P \text{ on the terminal side of the total angle such that the distance from the origin } O \\
+    &\text{ to } P \text{ is 1 unit } (OP = 1)\text{.}
+
+    \\[5ex]
+
+    &\text{2. Identifying the Components} \\
+    &\text{To find } \sin(x + h)\text{, we need the vertical height of point } \\
+    &P \text{ relative to the } x\text{-axis. Let’s drop some perpendicular lines to create right triangles:} \\
+    &\text{Drop a perpendicular from } P \text{ to the terminal side of angle } x \text{ at point } Q\text{.} \\
+    &\text{Drop a perpendicular from } P \text{ to the } x\text{-axis at point } R\text{. } PR \text{ is our goal, because } PR = \sin(x+h)\text{.} \\
+    &\text{Drop a perpendicular from } Q \text{ to the } x\text{-axis at point } S\text{.} \\
+    &\text{Draw a horizontal line from } Q \text{ to the line } PR\text{, hitting it at point } T\text{.} \\
+    &\text{Now, notice that the total height } PR \text{ is composed of two segments:} \\
+    &PR = PT + TR \\
+    &\text{Since } TRQS \text{ is a rectangle, } TR = QS\text{. So:} \\
+    &\sin(x+h) = PT + QS
+    \end{aligned}$$
+
+</div>
+
+<!-- <div style="width: 70%; margin: auto; border: 2px solid #555; padding: 15px; border-radius: 8px; margin: 10px 0; text-align: center;"> -->
+    <div style="width: 70%; overflow-x: auto; overflow-y: hidden; margin: auto; border: 1px solid ##00000000; padding: 10px; border-radius: 8px; box-sizing: border-box;">
+
+    $$\\[5ex]$$
+        
+    $$\begin{aligned}
+    &\text{3. Solving for the Segments} \\
+    &\text{We now look at the two right triangles we've created:} \\
+    &\text{Triangle 1: } \triangle OQP \\
+    &\text{The hypotenuse } OP = 1\text{.} \\
+    &PQ = \sin(h) \\
+    &OQ = \cos(h) \\
+    &\text{Triangle 2: } \triangle OSQ \\
+    &\text{This triangle has angle } x \text{ and hypotenuse } OQ \text{ (which we know is } \cos(h)\text{).} \\
+    &\sin(x) = \frac{QS}{OQ} \implies QS = OQ \sin(x) \\
+    &\text{Substitute } OQ\text{: } QS = \cos(h) \sin(x) \\
+    &\text{Triangle 3: } \triangle TQP \\
+    &\text{This is the clever part. The angle } \angle TPQ \text{ is actually equal to } x \\
+    &\text{ (because its sides are perpendicular to the sides of angle } x\text{).} \\
+    &\cos(x) = \frac{PT}{PQ} \implies PT = PQ \cos(x) \\
+    &\text{Substitute } PQ\text{: } PT = \sin(h) \cos(x)
+    \end{aligned}$$
+    
+    $$\\[5ex]$$
+
+
+
+</div>
+
+
+<div style="width: 100%; overflow-x: auto; overflow-y: hidden; margin: auto; border: 1px solid ##00000000; padding: 10px; border-radius: 8px; box-sizing: border-box;">
+    
+        $$\begin{aligned}
+        &\text{4. Combining the Results} \\
+        &\text{Now we plug our values for } QS \text{ and } PT \text{ back into our original height equation:} \\
+        &\sin(x+h) = PT + QS \\
+        &\sin(x+h) = (\sin(h) \cos(x)) + (\cos(h) \sin(x)) \\
+        &\text{Rearranging for the standard form:} \\
+        &\mathbf{\sin(x+h) = \sin(x)\cos(h) + \cos(x)\sin(h)}
+        \end{aligned}$$
+    
+</div>
+
+
+<div style = "font-size: 21px">
+        $$\\[5ex]$$
+    
+        $$\boxed{\large \quad \mathbf{\sin(x+h) = \sin(x)\cos(h) + \cos(x)\sin(h)}\quad}$$
+    </div>    
+
+
+<br>
+<br>
+<br>
+
+
+<!-- 
+_       _________ _______ __________________ _______ 
+( \      \__   __/(       )\__   __/\__   __/(  ____ \
+| (         ) (   | () () |   ) (      ) (   | (    \/
+| |         | |   | || || |   | |      | |   | (_____ 
+| |         | |   | |(_)| |   | |      | |   (_____  )
+| |         | |   | |   | |   | |      | |         ) |
+| (____/\___) (___| )   ( |___) (___   | |   /\____) |
+(_______/\_______/|/     \|\_______/   )_(   \_______)
+                                                      
+-->
+
+
+<hr>
+<hr>
+<h1 style="font-size: 40px;"><b> Limits </b></h1>
+<br>
+
+
+<hr>
+<div style = "font-size: 21px">
+        $$\LARGE\text{Limits \#1}$$
+</div>        
+<hr>
+<br>
+<!-- 
+<hr>
+<p style="font-size: 30px;"><strong>1# limit</strong></p>
+<hr> -->
+
+<!-- SandwichTheoremColored -->
+<img  src="Img/SandwichTheoremColored.png"  style="display: block; margin: 0 auto; ">
+
+
+<div style = "font-size: 21px">
+
+    $$\\[5ex]$$
+    
+    $$\large\boxed {\lim_{h \to 0} \frac{\sin(h)}{h} = 1}$$
+
+    $$\\[5ex]$$
+    
+    $$\begin{aligned}
+    &\text{\textbf{Geometric Setup}} \\
+    &\text{Consider a unit circle with radius } r = 1 \text{ and an angle } h \text{ where } 0 < h < \frac{\pi}{2}. \\
+    &\text{We define three regions based on this angle:} \\
+    \\
+    &\text{1. \textbf{Small Triangle:}} \text{ vertices at } (0,0), (1,0), \text{ and } (\cos(h), \sin(h)). \\
+    &\text{Area}_{\text{triangle 1}} = \frac{1}{2} \cdot \text{base} \cdot \text{height} = \frac{1}{2} \cdot 1 \cdot \sin(h) = \frac{1}{2}\sin(h) \\
+    \\
+    &\text{2. \textbf{Circular Sector:}} \text{ with central angle } h. \\
+    &\text{Area}_{\text{sector}} = \frac{1}{2} r^2 h = \frac{1}{2} (1)^2 h = \frac{1}{2}h \\
+    \\
+    &\text{3. \textbf{Large Triangle:}} \text{ formed by the base and the tangent line at } (1,0). \\
+    &\text{Area}_{\text{triangle 2}} = \frac{1}{2} \cdot \text{base} \cdot \text{height} = \frac{1}{2} \cdot 1 \cdot \tan(h) = \frac{1}{2}\tan(h)
+    \\[7ex]
+    
+    
+    &\textbf{Establishing the Inequality} \\
+    \\
+    &\text{From the geometry of the unit circle, it is clear that:} 
+    \\[8px]
+
+    &\text{Area}_{\text{triangle 1}} < \text{Area}_{\text{sector}} < \text{Area}_{\text{triangle 2}} 
+    \\[8px]
+    
+    &\text{Substituting the formulas derived above:} 
+    \\[8px]
+    
+    &\frac{1}{2}\sin(h) < \frac{1}{2}h < \frac{1}{2}\tan(h) 
+    \\[8px]
+        
+    &\text{Multiply the entire inequality by } 2 \text{ to simplify:} 
+    \\[5px]
+    
+    &\sin(h) < h < \tan(h)
+    
+    \\[7ex]
+    
+
+    &\text{\textbf{3. Algebraic Manipulation}} \\
+    &\text{Since we are interested in } \frac{\sin(h)}{h}, \text{ we divide the inequality by } \sin(h). \\
+    &\text{Because } h \text{ is in the first quadrant } (0 < h < \frac{\pi}{2}), \sin(h) \text{ is positive, so the} \\
+    &\text{inequality signs do not flip:} \\
+    \\
+    &\frac{\sin(h)}{\sin(h)} < \frac{h}{\sin(h)} < \frac{\tan(h)}{\sin(h)} \\
+    \\
+    &\text{Recalling that } \tan(h) = \frac{\sin(h)}{\cos(h)}, \text{ we get:} \\
+    \\
+    &1 < \frac{h}{\sin(h)} < \frac{1}{\cos(h)}
+
+    \\[7ex]
+    
+    &\textbf{Reciprocal Rule:} \\
+    &\text{When you take the reciprocal of all parts of an inequality where all} \\
+    &\text{terms are positive, the inequality symbols must flip.} \\[1em]
+    &2 < 3 < 4 \\[0.5em]
+    &\frac{1}{2} > \frac{1}{3} > \frac{1}{4}
+
+    \\[7ex]
+    \end{aligned}$$
+
+</div>
+<div style = "font-size: 21px">
+
+
+    $$\begin{aligned}
+    
+    \boxed
+    {
+    \text{The reciprocal of a function is simply } 1 \text{ divided by that function.} \\
+    \text{If you have a function } f(x), \text{ its reciprocal is:} \\[1em]
+    \quad \frac{1}{f(x)} \quad \text{or} \quad [f(x)]^{-1}
+    }
+    \end{aligned}$$
+    
+    $$\\[5ex]$$
+</div>    
+<div style = "font-size: 21px">
+    
+
+    $$\begin{aligned}
+    
+    &\text{Now, take the reciprocal of all parts. Taking the reciprocal of} \\
+    &\text{positive terms reverses the inequality signs:} \\
+    \\
+    &1 > \frac{\sin(h)}{h} > \cos(h) \\
+    \\
+    &\text{Or, written more standardly:} \\
+    \\
+    &\cos(h) < \frac{\sin(h)}{h} < 1\\
+    \\
+    &\ {\lim_{h \to 0}cos(h) < \lim_{h \to 0}\frac{\sin(h)}{h} < \lim_{h \to 0} 1}\\
+
+    
+    \\
+    &\text{We now take the limit as } h \to 0 \text{ for the outer functions:} \\
+    \\
+    &\lim_{h \to 0} 1 = 1 \\
+    &\lim_{h \to 0} \cos(h) = \cos(0) = 1 \\   
+    \\
+    &1 \le \lim_{h \to 0} \frac{\sin(h)}{h} \le 1
+    \\[5ex]
+    
+    &\text{Since } \frac{\sin(h)}{h} \text{ is "squeezed" between two functions that both approach } 1 \\
+    &\text{as } h \text{ approaches } 0, \text{ the Squeeze Theorem states that:} \\
+    \\
+    &\boxed{\color{white}{\lim_{h \to 0^+} \frac{\sin(h)}{h} = 1}}
+
+    \end{aligned}$$
+    <!-- $$\lim_{h \to 0} \cos(h) \leq \lim_{h \to 0} \frac{\sin(h)}{h} \leq \lim_{h \to 0} 1$$ -->
+    $$\\[5ex]$$
+    
+</div>
+    
+<!-- 
+<hr>
+<p style="font-size: 30px;"><strong>2# limit</strong></p>
+<hr> -->
+
+
+
+<hr>
+<div style = "font-size: 21px">
+        $$\LARGE\text{Limits \#2}$$
+</div>        
+<hr>
+<br>
+
+<div style = "font-size: 21px">
+
+    $$\boxed{\color{white}{\lim_{h \to 0} \frac{\cos(h) - 1}{h} = 0}}$$
+
+    $$\\[5ex]$$
+    
+    $$\lim_{h \to 0} \frac{\cos(h) - 1}{h} \cdot \frac{\cos(h) + 1}{\cos(h) + 1}$$
+
+    $$\\[5ex]$$
+    
+    $$\lim_{h \to 0} \frac{\cos^2(h) - 1}{h(\cos(h) + 1)}$$
+
+    $$\\[5ex]$$
+    
+    $$\sin^2(h) + \cos^2(h) = 1 \implies \cos^2(h) - 1 = -\sin^2(h)$$
+
+    $$\\[5ex]$$
+
+    $$\lim_{h \to 0} \frac{-\sin^2(h)}{h(\cos(h) + 1)}$$
+
+    $$\\[5ex]$$
+
+    $$\lim_{h \to 0} \left( \frac{\sin(h)}{h} \cdot \frac{-\sin(h)}{\cos(h) + 1} \right)$$
+
+    $$\\[5ex]$$
+
+    $$\lim_{x \to a} [f(x) \cdot g(x)] = \left( \lim_{x \to a} f(x) \right) \cdot \left( \lim_{x \to a} g(x) \right)$$
+
+    $$\\[5ex]$$
+    
+    $$\text{if, }\quad  \lim_{h \to 0} \frac{\sin(h)}{h} = 1$$
+
+    $$\\[5ex]$$
+
+    $$\text{if, } h = 0 \implies \frac{-\sin(0)}{\cos(0) + 1} = \frac{0}{1 + 1} = \frac{0}{2} = 0$$
+
+    $$\\[5ex]$$
+
+    $$(1) \cdot (0) = 0$$
+
+    $$\\[5ex]$$
+    
+    $$\boxed{\lim_{h \to 0} \frac{\cos(h) - 1}{h} = 0}$$
+
+    $$\\[5ex]$$
+    
+</div>    
+
+
+<hr>
+<div style = "font-size: 21px">
+        $$\LARGE\text{Limits \#3}$$
+</div>        
+<hr>
+<br>
+
+<div style = "font-size: 21px">
+    $$\large\boxed{\lim_{h \to 0} \frac{e^h - 1}{h} = 1}$$
+
+    $$\\[5ex]$$
+    
+    $$e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots$$
+
+    $$\\[5ex]$$
+    
+    $$\text{if, } h = x,\quad  e^h = 1 + h + \frac{h^2}{2!} + \frac{h^3}{3!} + \dots$$
+
+    $$\\[5ex]$$
+
+    $$\lim_{h \to 0} \frac{(1 + h + \frac{h^2}{2!} + \frac{h^3}{3!} + \dots) - 1}{h}$$
+
+    $$\\[5ex]$$
+    
+    $$\lim_{h \to 0} \frac{h + \frac{h^2}{2!} + \frac{h^3}{3!} + \dots}{h}$$
+
+    $$\\[5ex]$$
+    
+    $$\lim_{h \to 0} \left( \frac{h}{h} + \frac{h^2}{2!h} + \frac{h^3}{3!h} + \dots \right)$$
+
+    $$\\[5ex]$$
+    
+    $$\lim_{h \to 0} \left( \frac{h}{h} + \frac{h^2}{2!h} + \frac{h^3}{3!h} + \dots \right)$$
+
+    $$\\[5ex]$$
+    
+    $$\lim_{h \to 0} \left( 1 + \frac{h}{2!} + \frac{h^2}{3!} + \dots \right)$$
+
+    $$\\[5ex]$$
+    
+    $$1 + 0 + 0 + \dots = 1$$
+
+    $$\\[5ex]$$
+    
+    $$\boxed{\lim_{h \to 0} \frac{e^h - 1}{h} = 1}  $$
+</div>
+    
+<!-- 
+    $$\begin{aligned}
+    &\text{\textbf{Establishing the Inequality}} \\
+    &\text{From the geometry of the unit circle, it is clear that:} \\
+    &\text{Area}_{\text{triangle 1}} < \text{Area}_{\text{sector}} < \text{Area}_{\text{triangle 2}} \\
+    &\text{Substituting the formulas derived above:} \\
+    &\frac{1}{2}\sin(h) < \frac{1}{2}h < \frac{1}{2}\tan(h) \\
+    &\text{Multiply the entire inequality by } 2 \text{ to simplify:} \\
+    &\sin(h) < h < \tan(h)
+\end{aligned}$$ -->
+
+    
+
+
+
+<!-- 
+______   _______  _______ _________          _______ __________________          _______ 
+(  __  \ (  ____ \(  ____ )\__   __/|\     /|(  ___  )\__   __/\__   __/|\     /|(  ____ \
+| (  \  )| (    \/| (    )|   ) (   | )   ( || (   ) |   ) (      ) (   | )   ( || (    \/
+| |   ) || (__    | (____)|   | |   | |   | || (___) |   | |      | |   | |   | || (__    
+| |   | ||  __)   |     __)   | |   ( (   ) )|  ___  |   | |      | |   ( (   ) )|  __)   
+| |   ) || (      | (\ (      | |    \ \_/ / | (   ) |   | |      | |    \ \_/ / | (      
+| (__/  )| (____/\| ) \ \_____) (___  \   /  | )   ( |   | |   ___) (___  \   /  | (____/\
+(______/ (_______/|/   \__/\_______/   \_/   |/     \|   )_(   \_______/   \_/   (_______/
+
+-->
+
+<hr>
+<hr>
+<h1 style="font-size: 40px;"><b> Derivative </b></h1>
+<br>
+
+<div style = "font-size: 21px">
+
+  $$\text{General Formula for Derivative}$$
+
+  $$\\[5ex]$$
+
+  $$f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}$$
+  
+  $$\\[5ex]$$
+
+  </div>
+
+  <hr>
+  <div style = "font-size: 21px">
+          $$\LARGE\text{Example \#1}$$
+
+  </div>        
+  <hr>
+
+<div style = "font-size: 21px">
+  
+
+  $$\\[5ex]$$
+  
+  $$\large \boxed {\quad f(x) = x^2 \quad}$$ 
+
+  $$\\[5ex]$$
+  
+  $$f(x+h) = (x+h)^2$$
+
+  $$\\[5ex]$$
+
+  $$f'(x) = \lim_{h \to 0} \frac{(x+h)^2 - x^2}{h}$$
+
+  $$\\[5ex]$$
+  
+  $$(x+h)^2 = x^2 + 2xh + h^2$$
+
+  $$\\[5ex]$$
+  
+  $$f'(x) = \lim_{h \to 0} \frac{\color{red}{\cancel{x^2}} 
+  \color{white}{+ 2xh + h^2} \color{red}{\cancel{- x^2}}}{h}$$
+
+  $$\\[5ex]$$
+  
+  $$f'(x) = \lim_{h \to 0} \frac{2xh + h^2}{h}$$
+
+  $$\\[5ex]$$
+  
+  $$f'(x) = \lim_{h \to 0} \frac{\color{red}{\cancel{h}}
+  \color{white}{(2x + h)}}{\color{red}{\cancel{h}}}$$
+
+  $$\\[5ex]$$
+  
+  $$f'(x) = \lim_{h \to 0} (2x + h)$$
+
+  $$\\[5ex]$$
+  
+  $$f'(x) = 2x + 0$$
+
+  $$\\[5ex]$$
+
+  $$\large \boxed {\quad f'(x) = 2x \quad}$$
+
+  $$\\[5ex]$$
+
+</div> 
+
+  <img  src="Img/DerivativeX2.png"  style="display: block; margin: 0 auto; ">
+
+<hr>
+<div style = "font-size: 21px">
+  $$\large \text{Theorem \#1 }$$
+</div>
+<hr>
+
+<div style = "font-size: 21px">
+  
+  $$\\[5ex]$$
+
+  $$\large \boxed {\quad f(x) = x^n \quad}$$
+
+  $$\\[5ex]$$
+
+  $$f(x) = x^n \implies f'(x) = nx^{n-1}$$
+
+  $$\\[5ex]$$
+
+  $$f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}$$
+
+  $$\\[5ex]$$
+
+  $$f'(x) = \lim_{h \to 0} \frac{(x + h)^n - x^n}{h}$$
+
+  $$\\[5ex]$$
+
+  $$\text{Binomial Theorem}$$
+
+  $$(x + h)^n = x^n + nx^{n-1}h + \frac{n(n-1)}{2}x^{n-2}h^2 + \dots + h^n$$
+
+  $$\\[5ex]$$
+  
+  $$f'(x) = \lim_{h \to 0} \frac{\left( \color{red}{\cancel{x^n}} \color{white}{+ nx^{n-1}h + 
+  \frac{n(n-1)}{2}x^{n-2}h^2 + \dots + h^n} \right) \color{red}{\cancel{- x^n}}}{h}$$
+
+  $$\\[5ex]$$
+
+  $$f'(x) = \lim_{h \to 0} \frac{nx^{n-1}h + \frac{n(n-1)}{2}x^{n-2}h^2 + \dots + h^n}{h}$$
+
+  $$\\[5ex]$$
+
+  $$f'(x) = \lim_{h \to 0} \frac{h \left( nx^{n-1} + \frac{n(n-1)}{2}x^{n-2}h + \dots + h^{n-1} \right)}{h}$$
+
+  $$\\[5ex]$$
+
+  $$f'(x) = \lim_{h \to 0} \frac{\color{red}{\cancel{h}} \color{white}{\left( nx^{n-1} + \frac{n(n-1)}{2}x^{n-2}h + \dots + h^{n-1} \right)}}{\color{red}{\cancel{h}}}$$
+
+  $$\\[5ex]$$
+
+  $$f'(x) = \lim_{h \to 0} \left( nx^{n-1} + \frac{n(n-1)}{2}x^{n-2}h + \dots + h^{n-1} \right)$$
+
+  $$\\[5ex]$$
+
+  $$f'(x) = nx^{n-1} + 0 + 0 + \dots + 0$$
+
+  $$\\[5ex]$$
+
+  $$\large \boxed {\quad f'(x) = nx^{n-1}\quad}$$
+
+  $$\\[5ex]$$
+  
+</div>
+
+<hr>
+<div style = "font-size: 21px">
+  $$\large \text{Theorem \#2 }$$
+</div>
+<hr>
+
+<div style = "font-size: 21px">
+
+$$\\[5ex]$$
+
+$${\quad f(x) = \cos(x_1) \quad}$$
+
+$$\\[5ex]$$
+
+$$\large \boxed {f'(x) = \lim_{h \to 0} \frac{\cos(x + h) - \cos(x)}{h}}$$
+
+$$\\[5ex]$$
+
+$$\cos(x + h) = \cos(x)\cos(h) - \sin(x)\sin(h)$$
+
+$$\\[5ex]$$
+
+$$f'(x) = \lim_{h \to 0} \frac{\cos(x)\cos(h) - \cos(x) - \sin(x)\sin(h)}{h}$$
+
+$$\\[5ex]$$
+
+$$f'(x) = \lim_{h \to 0} \left[ \cos(x) \left( \frac{\cos(h) - 1}{h} \right) - \sin(x) \left( \frac{\sin(h)}{h} \right) \right]$$
+
+$$\\[5ex]$$
+
+$$\text{if, } \quad \lim_{h \to 0} \frac{\sin(h)}{h} = 1$$
+
+$$\\[5ex]$$
+
+$$\text{if, }\quad \lim_{h \to 0} \frac{\cos(h) - 1}{h} = 0$$
+
+$$\\[5ex]$$
+
+$$f'(x) = \cos(x) \cdot (0) - \sin(x) \cdot (1)$$
+
+$$\\[5ex]$$
+
+$$\boxed{f'(x) = -\sin(x)}$$
+
+$$\\[5ex]$$
+
+</div>
+
+<hr>
+<div style = "font-size: 21px">
+  $$\large \text{Theorem \#3 }$$
+</div>
+<hr>
+
+<div style = "font-size: 21px">
+    
+    $$\\[5ex]$$
+    
+    $$\large \boxed {f'(x) = \lim_{h \to 0} \frac{\sin(x + h) - \sin(x)}{h}}$$
+
+    $$\\[5ex]$$
+    
+    $$\sin(x+h) = \sin(x)\cos(h) + \cos(x)\sin(h)$$
+
+    $$\\[5ex]$$
+    
+    $$f'(x) = \lim_{h \to 0} \frac{\sin(x)\cos(h) + \cos(x)\sin(h) - \sin(x)}{h}$$
+
+    $$\\[5ex]$$
+    
+    $$f'(x) = \lim_{h \to 0} \left[ \frac{\sin(x)(\cos(h) - 1)}{h} + \frac{\cos(x)\sin(h)}{h} \right]$$
+
+    $$\\[5ex]$$
+
+    $$f'(x) = \sin(x) \cdot \lim_{h \to 0} \left( \frac{\cos(h) - 1}{h} \right) + \cos(x) \cdot \lim_{h \to 0} \left( \frac{\sin(h)}{h} \right)$$
+    
+    $$\\[5ex]$$
+
+    $$\lim_{h \to 0} \frac{\sin(h)}{h} = 1$$
+
+    $$\\[5ex]$$
+
+    $$\lim_{h \to 0} \frac{\cos(h) - 1}{h} = 0$$
+
+    $$\\[5ex]$$
+    
+    $$f'(x) = \sin(x) \cdot (0) + \cos(x) \cdot (1)$$
+    
+    $$\\[5ex]$$
+
+    $$f'(x) = \cos(x)$$
+
+    $$\\[5ex]$$
+
+    
+</div>
+
+<hr>
+<div style = "font-size: 21px">
+  $$\large \text{Theorem \#4 }$$
+</div>
+<hr>
+
+
+<div style = "font-size: 21px">
+        $$\\[5ex]$$
+    
+        $$\large \boxed {f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}}$$
+
+        $$\\[5ex]$$
+        
+        $$f'(x) = \lim_{h \to 0} \frac{e^{x+h} - e^x}{h}$$
+
+        $$\\[5ex]$$
+
+        $$e^{a+b} = e^{a} \cdot e^{b},\quad e^{x+h}$$
+
+        $$\\[5ex]$$
+        
+        $$f'(x) = \lim_{h \to 0} \frac{e^x \cdot e^h - e^x}{h}$$
+
+        $$\\[5ex]$$
+        
+        $$f'(x) = \lim_{h \to 0} \frac{e^x(e^h - 1)}{h}$$
+
+        $$\\[5ex]$$
+
+        $$f'(x) = e^x \cdot \left[ \lim_{h \to 0} \frac{e^h - 1}{h} \right]$$
+
+        $$\\[5ex]$$
+
+        $$\lim_{h \to 0} \frac{e^h - 1}{h} = 1$$
+
+        $$\\[5ex]$$
+
+        $$f'(x) = e^x \cdot (1)$$
+        
+        $$\\[5ex]$$
+        
+        $$\large \boxed {f'(x) = e^x}$$
+
+        $$\\[5ex]$$
+        
+</div>
+<br>
+<br>
+
+<hr>
+<hr>
+<h1 style="font-size: 40px;"><b> End </b></h1>
+
+<br>
+<br>
+
+
+<!-- End -->
+
+<!-- 
+_______  _        ______     _  _  _ 
+(  ____ \( (    /|(  __  \   ( )( )( )
+| (    \/|  \  ( || (  \  )  | || || |
+| (__    |   \ | || |   ) |  | || || |
+|  __)   | (\ \) || |   | |  | || || |
+| (      | | \   || |   ) |  (_)(_)(_)
+| (____/\| )  \  || (__/  )   _  _  _ 
+(_______/|/    )_)(______/   (_)(_)(_)
+
+-->
+
+      
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      
+      
+
+
+
+
+</div>
+
+<br>
+<br>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+    </script>
+
+	
+        <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+        <!-- <script>window.jQuery </script> -->
+        <!-- <script src="script.js"></script> -->
+
+
+    </body>
+</html>
+
