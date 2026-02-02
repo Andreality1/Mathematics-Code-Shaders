@@ -2,21 +2,36 @@
 <html class="no-js" lang="en">
 	<meta name="viewport" content="width=device-width,initial-scale=1"/>
     <head>
-
+        
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    
+        
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" 
-            onload="renderMathInElement(document.body);"></script>
-
+        onload="renderMathInElement(document.body);"></script>
+        
         <link rel="stylesheet" href="style.css">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+        <style>
+            
+                pre[class*="language-"], 
+                code[class*="language-"] {
+                    background: #000000 !important; /* Pure Black */
+                    color: #ffffff !important;      /* Ensure base text is white */
+                }
+        </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
     </head>
 <body style="background-color: #000000 ">
 <div class="article">
 
 <h1>
 <a>
-		<strong>Matemathics Explanations of Derivatives</strong>
+		<strong>Matemathics Explanations of Plot Programming</strong>
 	</a>
 </h1>
 
@@ -42,7 +57,7 @@ From Andraelity, how CODE using math.
     
     <div  class="articleRightInner">
 
-      <img width="500"  src="Img/DerivativeFormula.png" class="center">
+      <img width="400"  src="Img/ShadersImage.png" class="center">
       <br>  
 <a target = "_blank" href="https://www.youtube.com/channel/UC-4AaN4M3Sq1lY6NVZnfaEw">Youtube/Andreality</a>
 </div>
@@ -64,250 +79,259 @@ define amounts, that we could follow in a relationship of quantity, a quantity o
     <div class="contentsHeader">Contents</div>
     <ul>
 
-<li><span>0.</span><a href="#Derivatives"> Derivatives</a></li>
+<li><span>0.</span><a href="#Derivatives"> Shaders</a></li>
 
 
 </ul>
 </div>
 
-
 <!-- 
-______   _______  _______ _________          _______ __________________          _______ 
-(  __  \ (  ____ \(  ____ )\__   __/|\     /|(  ___  )\__   __/\__   __/|\     /|(  ____ \
-| (  \  )| (    \/| (    )|   ) (   | )   ( || (   ) |   ) (      ) (   | )   ( || (    \/
-| |   ) || (__    | (____)|   | |   | |   | || (___) |   | |      | |   | |   | || (__    
-| |   | ||  __)   |     __)   | |   ( (   ) )|  ___  |   | |      | |   ( (   ) )|  __)   
-| |   ) || (      | (\ (      | |    \ \_/ / | (   ) |   | |      | |    \ \_/ / | (      
-| (__/  )| (____/\| ) \ \_____) (___  \   /  | )   ( |   | |   ___) (___  \   /  | (____/\
-(______/ (_______/|/   \__/\_______/   \_/   |/     \|   )_(   \_______/   \_/   (_______/
-
+#     _______  _______  _______  _______          _________ _______  _______ 
+#    (  ____ \(  ____ )(  ___  )(  ____ )|\     /|\__   __/(  ____ \(  ____ \
+#    | (    \/| (    )|| (   ) || (    )|| )   ( |   ) (   | (    \/| (    \/
+#    | |      | (____)|| (___) || (____)|| (___) |   | |   | |      | (_____ 
+#    | | ____ |     __)|  ___  ||  _____)|  ___  |   | |   | |      (_____  )
+#    | | \_  )| (\ (   | (   ) || (      | (   ) |   | |   | |            ) |
+#    | (___) || ) \ \__| )   ( || )      | )   ( |___) (___| (____/\/\____) |
+#    (_______)|/   \__/|/     \||/       |/     \|\_______/(_______/\_______)
+#                                                                             
 -->
 
 
 
-
-<h2 style="font-size: 50px;" id ="EulersIdentity"><strong>Eulers Identity</strong></h2>
+<h2 style="font-size: 50px;" id ="EulersIdentity"><strong>Computer Graphics</strong></h2>
 <!-- <h1><b><a href="https://andraelity.github.io/WebPageVideoTest/" > https://andraelity.github.io/WebPageVideoTest/ </a></b></h1> -->
 <!-- <h1><b><a> Factorial Identification </a></b></h1> -->
 
-
-
-<!-- 
-_______ _________ _        _______    _______  _        ______     _______  _______  _______ _________ _        _______ 
-(  ____ \\__   __/( (    /|(  ____ \  (  ___  )( (    /|(  __  \   (  ____ \(  ___  )(  ____ \\__   __/( (    /|(  ____ \
-| (    \/   ) (   |  \  ( || (    \/  | (   ) ||  \  ( || (  \  )  | (    \/| (   ) || (    \/   ) (   |  \  ( || (    \/
-| (_____    | |   |   \ | || (__      | (___) ||   \ | || |   ) |  | |      | |   | || (_____    | |   |   \ | || (__    
-(_____  )   | |   | (\ \) ||  __)     |  ___  || (\ \) || |   | |  | |      | |   | |(_____  )   | |   | (\ \) ||  __)   
-      ) |   | |   | | \   || (        | (   ) || | \   || |   ) |  | |      | |   | |      ) |   | |   | | \   || (      
-/\____) |___) (___| )  \  || (____/\  | )   ( || )  \  || (__/  )  | (____/\| (___) |/\____) |___) (___| )  \  || (____/\
-\_______)\_______/|/    )_)(_______/  |/     \||/    )_)(______/   (_______/(_______)\_______)\_______/|/    )_)(_______/
-
--->
-
+<!--
+#     _______          _________ _______    _______  _______  ______   _______  _______   
+#    (  ____ \|\     /|\__   __/(  ____ )  (  ___  )(  ____ )(  __  \ (  ____ \(  ____ )  
+#    | (    \/| )   ( |   ) (   | (    )|  | (   ) || (    )|| (  \  )| (    \/| (    )|  
+#    | |      | (___) |   | |   | (____)|  | |   | || (____)|| |   ) || (__    | (____)|  
+#    | |      |  ___  |   | |   |  _____)  | |   | ||     __)| |   | ||  __)   |     __)  
+#    | |      | (   ) |   | |   | (        | |   | || (\ (   | |   ) || (      | (\ (     
+#    | (____/\| )   ( |___) (___| )        | (___) || ) \ \__| (__/  )| (____/\| ) \ \__  
+#    (_______/|/     \|\_______/|/         (_______)|/   \__/(______/ (_______/|/   \__/  
+#                                                                                         
+ -->
 <hr>
 <hr>
-<h1 style="font-size: 40px;"><b> Sine and Cosine </b></h1>
+<h1 style="font-size: 40px;"><b> Shaders </b></h1>
 
-<br>
-<img  src="Img/SineAndCosine.png" style="display: block; margin: 0 auto;">
-<br>
+
 
 <div style = "font-size: 21px">
 
-$$\\[5ex]$$
-  
-$$\text{if Point } A = (x,y) = (1,0), \text{ then } \cos(A) = 1 \\[2ex]$$
+        <!-- \begin{aligned}
+    $\text{T \\
+    $\ \\
+    $\is to direct and redirect or sieve, \\
+    $\light   ,}\\
+    \end{aligned} -->
 
-$$\\[5ex]$$
+$$    \begin{aligned}
+&\text{he computer runs all the graphics interfaces through the chips, which is nothing else but a bunch of} \\
+&\text{organizers or sieves, that reorder the on's and off's from thousands and millions of switches, which only purpose} \\
+&\text{is to direct and redirect or sieve, the electric current, electricity, the power, the force through } \\
+&\text{to the desired path, so the idea here is not understand something so simple, this is basically changing a bulb} \\
+&\text{and turn on the switch to check if it turn up or not, the idea here is visualize what it is the best way} \\
+&\text{to change all the bulbs of an stadium capable to alocate 200.000 kThousands people, and not just change} \\
+&\text{the bulbs but also change the wired system that runs through all of them, all of a sudem changing one bulb  } \\
+&\text{seems like a really easy task.} \\
+\\[5pt]
+&\text{But why thinking this inmense and enormous, is necesary, I only need to plot a single sine function} \\
+&\text{i could do it by hand, if doing such thing is that difficult I would prefer to do that, is maybe} \\
+&\text{what you are thinking now, and yeah, you're in the freedom to do whatever you think is best, but if your} \\
+&\text{idea is to think about something really specific, and really punctual, which requires you to learn} \\
+&\text{about this particular type of things, about this specific and punctual ways to think, then yes, you got} \\
+&\text{to start thinking very inmense, so thinking little is a little bit more simple.} \\
+\\[5pt]
 
-$$\text{if Point } A = (x,y) = (1,0), \text{ then } \sin(A) = 0 \\[2ex]$$
+&\text{So now we begin, what are these sieves you'll be thinking, well, easy, sum this two numbers could be a sieve, } \\
+&\text{substract this two numbers, could be another sieve, make this number equal to this other number, is anoother one,} \\
+&\text{multiply, compare, divide, greater and less than, is another way to create ways to separate and filter information} \\
+&\text{verify trueness, which means if the thing is true or false, and when I say thing I mean  1 is equal to 1, if yes then } \\
+&\text{continue with the next things to do.}\\
+\\[5pt]
 
-$$\\[5ex]$$
+&\text{so that`s basically computing in its purest form, thats all the computer does all the time, in many many many ways to }\\
+&\text{reorganize summations, comparations, multiplication, evaluation, and also one of the most important ones, }\\
+&\text{create new things, stablish new information, save information, or also save this number, save this information you are reading,}\\
+&\text{maybe it is useful in the future.}\\
+\\[5pt]
 
-$$\text{if Point } B = (x,y) = (0,1), \text{ then } \sin(B) = 1 \\[2ex]$$
+&\text{so that's basically doing computing, that's all a computer does, in many, maaanyyyy ways, different ways but }\\
+&\text{at the end the same thing, at the end the same same same thing, so if you now know what's really going on }\\
+&\text{how much of this things you could think of out a doing }\\
+&\text{1 trillions}\\
+&\text{1 quatrillions}\\
+&\text{1 quintilloins}\\
+&\text{1 or maybe you could just think that everything that is going around you, works like that}\\
+&\text{that everything that goes in your reality works like that, that everything is a summation}\\
+&\text{a substraction, a reorganization of data a store and load of information in very particular ways to make everything }\\                    
+&\text{looks different but the same, at the same time, so maybe is life a simulation maybe you are reading letters that }\\
+&\text{only appear in front of you when you are reading them, and everysingle time that you save something is only the illusion}\\
+&\text{that you image yourself really doing something.}\\
 
-$$\\[5ex]$$
+&\text{so is a decaheptaoctasextaatrillion of things, doesnt sountd that big.}\\
+\\[5pt]
 
-$$\text{if Point } B = (x,y) = (0,1), \text{ then } \cos(B) = 0 \\[2ex]$$
+&\text{so the idea behind computers or more specificly science, is that you could alter the things in reality}\\
+&\text{if the things are organized in a correct order, or fashion, something that you can think is basically a }\\
+&\text{representation of this amounts, this inmense number of operations}\\
+\\[5pt]
 
-$$\\[5ex]$$
+&\text{so how much pixels are on a screen like 2 million ? yeah something like that right, 1920 * 1080}\\
+&\text{really small, dont you think, but how many transistors are on a chip, like 10 billion}\\
+&\text{but why 10 billion if I only got 2 million pixels, and that's where everything hides behind}\\
+&\text{how many screens are really running on your chip, on your computer, how many screens }\\
+&\text{are being sum at other things, compare, substracted, how many data on your screen can be presented}\\
+&\text{in other strings, in oder words, in other numbers, how many screens are on your computer, }\\
+&\text{or more clearer, how many screens can you handle, hey wait a minute I only use one screen what the hell }\\
+&\text{are you talking about. Simple, suppose that you are on a cafe internet, the old ones, where people used to sit}\\
+&\text{one next to the other, now if you follow this structure, could you simulate that expression on your screen}\\
+&\text{it is possible to create an simulation on your computer using math and code to create a cafe}\\
+&\text{internet, yes for sure, so if you can simulate computers in a computers, are you simmulating a computer}\\
+&\text{or just making use of your computer more extended.}\\
+\\[5pt]
+
+&\text{thats usually the most difficult idea to get on, that within your computer there are more computers, }\\
+&\text{that you could make use of, if you know how to work with them, so making use of this screens or computers }\\
+&\text{is what you need to understand, how to make use of computer more throughfully, how to use computers}\\
+&\text{to use more computers, like painting, or building houses, learn how to build houses today, so you could }\\
+&\text{build more houses tomorrow, or painting, paint something today so you could make more paints in the future}\\
+&\text{so imagine that within your computer there are hundres or thousands or millions of screens, that you could}\\
+&\text{could use to display things on.}\\
+\\[5pt]
+
+&\text{you could display mathematical plots, like we are going to do from this moment on, or }\\
+&\text{you could write words on it, or you could create pictures, or used to create diagrams}\\
+&\text{to edit videos, to edit images, to simulate environments, to 3D expand multiple screens so}\\
+&\text{you image yourself automatizing machines, design plans, chat or whichever you think is best}\\
+&\text{but yeah you got hundrds of screens on your computer available to extend, achieve, and reach your goals,}\\
+&\text{but overall try to accomplish what you choise.}\\
+
+\end{aligned}$$
 
 </div>
 <br>
-<img  src="Img/SinAndCos45Degree.png" style="display: block; margin: 0 auto;">
 <br>
 
-<div style = "font-size: 21px">
-$$\\[5ex]$$
-
-$$\text{If } \theta = 45^\circ = \frac{\pi}{4},\hspace{5pt} C = (0.707106811865, 0.707106811865)$$
-
-$$\\[3ex]$$
-
-$$\text{If } C = (0.707106811865, 0.707106811865),\hspace{5pt} C, sin = C.y = 0.707106811865$$
-
-$$\\[3ex]$$
-
-$$\text{If } C = (0.707106811865, 0.707106811865),\hspace{5pt} C, \cos = C.x = 0.707106811865$$
-
-$$\\[5ex]$$
-
-$$\text{If } \theta = 45^\circ = \frac{\pi}{4} ,\hspace{5pt} \sin(\theta) = 0.707106811865$$
-
-$$\\[5ex]$$
-
-$$\text{If } \theta = 45^\circ = \frac{\pi}{4},\hspace{5pt} \cos(\theta) = 0.707106811865$$
-
-$$\\[5ex]$$
-
-$$|\vec{C}| = \sqrt{x^2 + y^2}$$
-
-$$\\[3ex]$$
-
-$$\text{hipotenuse} = \hspace{3pt} h \hspace{3pt} = \sqrt{\text{base}^2 + \text{height}^2} \implies |\vec{C}| = \sqrt{x^2 + y^2}$$
-
-$$\\[5ex]$$
-
-$$|\vec{C}| = \sqrt{x^2 + y^2} = \hspace{3pt} 1 \hspace{3pt} = 
-\sqrt{(\cos 45^\circ)^2 + (\sin 45^\circ)^2} = \sqrt{\left(\cos \left(\frac{\pi}{4}\right)\right)^2 + \left(\sin \left(\frac{\pi}{4}\right)\right)^2}$$
-
-</div>
-
-
-<br>
-<img  src="Img/SinUnitCircle3.png"  style="display: block; margin: 0 auto; ">
-<br>
-<br>
-<img  src="Img/CosUnitCircle.png" style="display: block; margin: 0 auto; width: 65%;">
-<br>
-<br>
-<br>
 
 
 <hr>
 <div style = "font-size: 21px">
-        $$\LARGE\text{Identity \#1}$$
+        $$\LARGE\text {Shaders}$$
 </div>        
 <hr>
 
 <div style = "font-size: 21px">
-        $$\\[5ex]$$
+<br>
 
-
-$$\boxed{\quad\cos(A + B) = \cos(A)\cos(B) - \sin(A)\sin(B)\quad} \\[5ex]$$
-
-$$\\[5ex]$$
-
-$$\text{Point } P_0: \text{At angle } 0 \implies (x, y) = (1, 0)$$
-
-$$\\[5ex]$$
-
-$$\text{Point } P_1: \text{At angle } B \implies (x, y) = (\cos B, \sin B)$$
+$$\begin{aligned}
+&\bullet \text{Read from memory:} && [STACK] \to \text{DATA} \\
+&\bullet \text{Write to memory:} && \text{DATA} \to [STACK] \\
+&\bullet \text{Add:} && a + b  \to \text{DATA} + \text{DATA}\\
+&\bullet \text{Subtract:} && a - b \to \text{DATA} - \text{DATA}\\
+&\bullet \text{Branch on Zero/False:} && \text{if } Z = 0 \to \text{DATA} = 0\\
+&\bullet \text{Branch on One/Positive:} && \text{if } Z = 1 \to \text{DATA} = 1
+\end{aligned}$$
 
 $$\\[5ex]$$
 
-$$\text{Point } P_2: \text{At angle } -A \implies (x, y) = (\cos(-A), \sin(-A)), \text{ which simplifies to } (\cos A, -\sin A)$$
+$$\begin{aligned}
+&\text{The previous instructions define what a computer is, and what can you do to make a computer work}\\
+&\text{}\\
 
-$$\\[5ex]$$
-
-$$\text{Point } P_3: \text{At angle } A+B \implies (x, y) = (\cos(A+B), \sin(A+B))$$
+&\text{So if we understand now that every computer chip today, got thousands and thousands of computers, inside the }\\
+&\text{the question, start to turns into what can you do to change this computers to do what you want to do}\\
+&\text{now I got for you a question, can you link a computer to a pixel ?, can you place a single computer }\\
+&\text{inside your pixel, can you place a computer inside 2 million pixels, the answer is yes but no,}\\
+&\text{its is possible yes, it is currently working like that no, so what is really happening is that each pixel}\\
+&\text{is link through a space in your computer chip that sends the information to the screen, once is all updated,}\\
+&\text{but before the screen is updated there is a single computer with the rules that we specify above dedicated to}\\
+&\text{each pixel.}\\
+&\text{So why instead not only one computer to all the pixels?, well thats a nice question, and the answers is }\\
+&\text{yes, that's how everything use to work in the past, when computers started, the main way how they used to }\\
+&\text{handle the operation, was like that, but at time past, and everything start to get tighter and tighter then}\\
+&\text{we start to notice; hey, you know what I can do the same thing I am doing with 1 single computer with 2 milloin }\\
+&\text{of them, and even faster.}\\
+&\text{The reason why is faster, is cuz compare things is slower than to make calculations, calculations is fast really}\\
+&\text{fast!!, like super, super, fast. }\\
+&\text{So, now you know got the idea of what we are going to do, we are going to perform calculation on multiple }\\
+&\text{computers, at the same time, to graph, or plot things on the screen, thats the main goal, and the reason how, }\\
+&\text{is cuz doing that thing is extremelly fast.}\\
+&\text{}\\
+\end{aligned}$$
 
 </div>
 
-<br>
-<br>
-<img  src="Img/COSAplusB.png"  style="display: block; margin: 0 auto; width: 60%;">
+<img  src="Img/ParallelComputingOrder.png"  style="display: block; margin: 0 auto; width: 30%;">
 
 
 
 <div style = "font-size: 21px">
-$$\\[5ex]$$
 
-$$d^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2 \quad \text{(derived from } a^2 + b^2 = c^2\text{)}$$
+<!-- &\text{computers, at the same time, to graph, or plot things on the screen, thats the main goal, and the reason how, }\\ -->
 
-$$\\[5ex]$$
+$$\begin{aligned}
+&\text{So the idea here is to understand that every single computer is run by another computer, that a way for us to }\\
+&\text{understand more computer was create more computers to make use of, so we got to invent a way to name this new }\\
+&\text{computers so everything dont get messup in the process, so instead of detailing computers version 2,3,4,5....}\\
+&\text{ we instead started to name them like shaders, cores, thread, parallelize, kernel, virtualize, and}\\
+&\text{etc, etc, etc...}\\
+&\text{instead imagine the computers using others computers in a different way, with the purpose to achieve a goal.}\\
+&\text{now what we are going to do is define how we can make use of a version of computers names shaders}\\
+&\text{which is the closets way to make use of the graphic structures.}\\
+&\text{The director is the computer that runs the compiler, which is the programming language of your choice,}\\
+&\text{and that allows you to create the layers between the chip and the GPU interface }\\
+&\text{so this is going to be the first way to connect the two points, the CPU is the place where you are going}\\
+&\text{to use this programming language, to use the layers to share information with your graphics card}\\
+&\text{which is the one who would take care of the displaying of your plots, offcourse there is a way to make}\\
+&\text{this in the CPU, but is more manageable to do that in the GPU.}\\
+&\text{So the GPU is the one which can operate this idea of millions of computers in a more clearer way.}\\
+&\text{the main language of your choice is going to be the one who is going to direct which computers}\\
+&\text{at which times, and in which way they are going to behave.}\\
+&\text{imagine as if you were running your program by launching a command run, but instead you are running programs}\\
+&\text{inside a programming language, which create the communication between the next layer of abstraction}\\
+&\\[5ex]
 
-$$(d_{P_1 P_2})^2 = (d_{P_0 P_3})^2$$
 
-$$\\[5ex]$$
+&\text{Launching the computers is the key cuz thats whats going to allow you to ordenate things a little bit }\\
+&\text{more clearer, mathematics is the key, make use of mathematics is the main idea here, learn how to }\\
+&\text{make use of the ways to graphics functions things is what we need to do.}\\
+&\text{now what we are going to do is make use of shaders by setting this thing up only to run shaders}\\
+&\text{just one shaders, and we are going to get exhaust to make use of this thing}\\
+&\text{there's million of things that we could write on a shader.}\\
+&\text{So we are going to project many things in shaders, so we could make really nice graph in the future.}\\
+&\\[5ex]
 
-$$\text{For } P_0 \text{ to } P_3:$$
+&\text{What we now know about shaders is that they work as computers, but you also know that wihtin a shader there are}\\
+&\text{also hundreds of computers, that run in parallel which only mean that current-electricity runs through it}\\
+&\text{and makes all the computers inside the shader to run at the same time all the single computers running at the same}\\
+&\text{time, every single computer executed at the same time, and we can make these high number of computers to work }\\
+&\text{how we wanted, and how we can do that is the key point here, we got to understand them before hand, we got to}\\
+&\text{learn how to make use of them so we can make use of them.}\\
+&\text{The question here is how we can make thousands of mini computers inside the shader to work how we want}\\
+&\text{which means output what we want them to output.}\\
+&\text{}\\
+&\text{}\\
+&\text{}\\
 
-$$\\[5ex]$$
+&\text{}\\
+\end{aligned}$$
+        
 
-$$(d_{P_0 P_3})^2 = (\cos(A+B) - 1)^2 + (\sin(A+B) - 0)^2$$
-
-$$\\[5ex]$$
-
-$$(d_{P_0 P_3})^2 = \cos^2(A+B) - 2\cos(A+B) + 1 + \sin^2(A+B)$$
-
-$$\\[5ex]$$
-
-$$\sin^2\theta + \cos^2\theta = 1$$
-
-$$\\[5ex]$$
-
-$$(d_{P_0 P_3})^2 = \underbrace{\cos^2(A+B) + \sin^2(A+B)}_{1} - 2\cos(A+B) + 1$$
-
-$$\\[5ex]$$
-
-$$(d_{P_0 P_3})^2 = 1 - 2\cos(A+B) + 1$$
-
-$$\\[5ex]$$
-
-$$(d_{P_0 P_3})^2 = 2 - 2\cos(A + B)$$
-
-$$\\[5ex]$$
-
-$$\text{For } P_1 \text{ to } P_2:$$
-
-$$\\[5ex]$$
-
-$$(d_{P_1 P_2})^2 = (\cos B - \cos A)^2 + (\sin B - (-\sin A))^2$$
-
-$$\\[5ex]$$
-
-$$(d_{P_1 P_2})^2 = (\cos B - \cos A)^2 + (\sin B + \sin A)^2$$
-
-$$\\[5ex]$$
-
-$$(d_{P_1 P_2})^2 = (\cos^2 B - 2\cos A \cos B + \cos^2 A) + (\sin^2 B + 2\sin A \sin B + \sin^2 A)$$
-
-$$\\[5ex]$$
-
-$$(\cos^2 B + \sin^2 B = 1) \text{ and } (\cos^2 A + \sin^2 A = 1)$$
-
-$$\\[5ex]$$
-
-$$(d_{P_1 P_2})^2 = \underbrace{\cos^2 B + \sin^2 B}_{1} + \underbrace{\cos^2 A + \sin^2 A}_{1} - 2\cos A \cos B + 2\sin A \sin B$$
-
-$$\\[5ex]$$
-
-$$(d_{P_1 P_2})^2 = 1 + 1 - 2\cos A \cos B + 2\sin A \sin B$$
-
-$$\\[5ex]$$
-
-$$(d_{P_1 P_2})^2 = 2 - 2\cos A \cos B + 2\sin A \sin B$$
-
-$$\\[5ex]$$
-
-$$(d_{P_0 P_3})^2 = (d_{P_1 P_2})^2 $$
-
-$$\\[5ex]$$
-
-$$2 - 2\cos(A+B) = 2 - 2\cos A \cos B + 2\sin A \sin B$$
-
-$$\\[5ex]$$
-
-$$-2\cos(A+B) = -2\cos A \cos B + 2\sin A \sin B$$
-
-$$\\[5ex]$$
-
-$$\large \boxed {\quad \cos(A+B) = \cos A \cos B - \sin A \sin B \quad }$$
-
-$$\\[5ex]$$
 
 </div>
+
+<h2>C++</h2>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+std::cout << "Hello from C++!" << std::endl;
+return 0;
+}</code></pre>
 
 <hr>
 <div style = "font-size: 21px">
@@ -536,6 +560,7 @@ _       _________ _______ __________________ _______
     \end{aligned}$$
     
     $$\\[5ex]$$
+
 </div>    
 <div style = "font-size: 21px">
     
