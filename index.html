@@ -350,7 +350,7 @@ $$\begin{aligned}
         sampler2D _MainTex;
         float4 _MainTex_ST;
         int _SetScreen ;
-        float _StepTime; // This receives the value from C#
+            float _StepTime; // This receives the value from C#
 
 
         PixelData vert (VertexInfo v)
@@ -371,7 +371,7 @@ $$\begin{aligned}
             float2 uv =  i.uv ;
             
             fixed4 colorWhite = float4(1,1,1,1); // Color white.
-            fixed4 colorBlack = float4(0,0,0,1); // Color white.
+            fixed4 colorBlack = float4(0,0,0,1); // Color Black.
             
 
             col = fixed4(uv.x, uv.y , 0.0, 1.0);
@@ -547,7 +547,7 @@ $$\begin{aligned}
                 // HOW TO RUN THE PIXELS OF THE SCREEN.
                 
                 fixed4 colorWhite = float4(1,1,1,1); // Color white.
-                fixed4 colorBlack = float4(0,0,0,1); // Color white.
+                fixed4 colorBlack = float4(0,0,0,1); // Color Black.
 
                 float2 uv =  i.uv ;
 
@@ -560,7 +560,7 @@ $$\begin{aligned}
     
         </code></pre>
         <!-- &\bullet\text{POSITION and SV\_POSITION, is the same as the previous TEXCOORD0, but instead for vertexes, so it usually tents to be a  }\\ -->
-    
+
         $$\begin{aligned}
         
         &\text{This function is the one where we are going spend a lot of time on , its because here is where the mathematics }\\
@@ -578,6 +578,18 @@ $$\begin{aligned}
         &\text{retrived, so as its flag stated TEXCOORD0, it came in a coordinate system.}\\
         &\text{so in the structured ~i~, and the subvariable uv, the pixels are abstracted.}\\
         &\text{}\\
+
+        \end{aligned}$$
+
+        <pre><code class="language-hlsl">
+        
+                fixed4 frag (PixelData i) : SV_Target
+        
+        </code></pre>
+
+
+        $$\begin{aligned}
+        
         &\text{now is where all we been saying about mini computers, and computers inside computers start to get sense, the reason  }\\
         &\text{of this is cuz, the thing that we are going to operate from this moment on is the pixel, from the moment the function}\\
         &\text{ "frag" start, the operation that we are going to process from this precise instant is on the pixel, we are going to make }\\
@@ -595,53 +607,329 @@ $$\begin{aligned}
         &\text{the values of color, usualy this go, from 0 to 1, for each RGB, and W for the albedo or brightness normally. }\\
         &\text{by using the coordinates from the TEXCOORD0, that came from 0 to 1 for all the position of the pixels in the coordinate system}\\
         &\text{in the chip.}\\
+
+        \end{aligned}$$
+
+        <pre><code class="language-hlsl">
+
+                float2 uv =  i.uv ;
+        </code></pre>
+
+        
+        $$\begin{aligned}
+
         &\text{So if we populate the color using this information \textbf{\large {fixed4(uv.x, uv.y, 0, 1.0)}}, we are going to notice}\\
         &\text{that the elements from the bottom left are going to be black cuz the position they are representing is the  (0,0) coordinate,}\\
         &\text{but if instead by go to the x axis limit which would be the bottom right of the screen we are goinig to check that the  }\\
         &\text{color is going to be red cuz the position is going to be in the corodinate system (1,0) but if we go to the right up corner (1,1)}\\
         &\text{we are going to check that if we mix two colors red and green we are going to get yellow which is the collor that's on the }\\
         &\text{top right corner.}\\
-        &\text{}\\
-        &\text{}\\
 
         \end{aligned}$$
+        <pre><code class="language-hlsl">
+
+                fixed4 col = fixed4(uv.x, uv.y , 0.0, 1.0);
+       </code></pre>
         
    
 </div>
 
 <img  src="Img/FirstImageShader.png"  style="display: block; margin: 0 auto; width: 30%;">
 
+<br>
+<br>
 
 
+<div style = "font-size: 21px">
+ 
 
-<h1>HLSL Shader Snippet</h1>
-    <p>Rendering a simple pixel shader with Monokai styling:</p>
+        $$\begin{aligned}
 
-    <pre><code class="language-hlsl">
-    struct PS_INPUT {
-    float4 Pos : SV_POSITION;
-    float2 Tex : TEXCOORD0;
-};
+        &\text{if we instead make the output variable to (1,1,1,1) we are going to output the color white }\\
 
-sampler2D g_SamScene : register(s0);
+        \end{aligned}$$
 
-float4 main(PS_INPUT input) : SV_Target {
-    // Sample texture and return color
-    float4 color = tex2D(g_SamScene, input.Tex);
-    
-    // Simple grayscale conversion
-    float gray = dot(color.rgb, float3(0.3, 0.59, 0.11));
-    return float4(gray, gray, gray, color.a);
-}</code></pre>
+        <pre><code class="language-hlsl">
+            
+            fixed4 frag (PixelData i) : SV_Target
+            {
+                
+                // THIS CODE MEANS
+                // HOW TO RUN THE PIXELS OF THE SCREEN.
+                
+                fixed4 colorWhite = float4(1,1,1,1); // Color white.
+                fixed4 colorBlack = float4(0,0,0,1); // Color Black.
+                
+                float2 uv =  i.uv ;
+                
+                
+                fixed4 col = colorWhite;
+                
+                return col;
+                
+            }
+            
+        </code></pre>
+        
+</div>        
+
+<img  src="Img/WhiteShaderColor.png"  style="display: block; margin: 0 auto; width: 30%;">
+
+<br>
 
 
+<div style = "font-size: 21px">
+ 
+
+        $$\begin{aligned}
+
+        &\text{but if we change the color x variable for 1 we are going to make the output variable to (1,0,0,1)}\\
+        &\text{the output we expect in this case as the RGBW states, we spect a 100\% red as output }\\
+
+        \end{aligned}$$
+
+        <pre><code class="language-hlsl">
+            
+            fixed4 frag (PixelData i) : SV_Target
+            {
+                
+                // THIS CODE MEANS
+                // HOW TO RUN THE PIXELS OF THE SCREEN.
+                
+                fixed4 colorWhite = float4(1,1,1,1); // Color white.
+                fixed4 colorBlack = float4(0,0,0,1); // Color Black.
+                fixed4 colorRed = float4(1,0,0,1); // Color Red.
+                
+                float2 uv =  i.uv ;
+                
+                
+                fixed4 col = colorRed;
+                
+                return col;
+                
+            }
+            
+        </code></pre>
+        
+</div>        
+
+<img  src="Img/RedShaderColor.png"  style="display: block; margin: 0 auto; width: 30%;">
+
+<br>
+
+
+<hr>
+<hr>
+<h1 style="font-size: 40px;"><b> Smoothstep </b></h1>
+<br>
 
 <hr>
 <div style = "font-size: 21px">
     
-    $$\LARGE\text{Identity \#2}$$
+    $$\LARGE\text{Smoothstep main Theory}$$
 </div>        
 <hr>
+
+
+
+<div style = "font-size: 21px">
+ 
+        <!-- &\bullet\text{POSITION and SV\_POSITION, is the same as the previous TEXCOORD0, but instead for vertexes, so it usually tents to be a  }\\ -->
+
+        $$\begin{aligned}
+
+        &\text{the smooth step functions is a mathematical method, that is going to help us blend things into a more smoother data }\\
+        &\text{display of information, in this case we are talking about pixels, but the questions that you maybe are wondering }\\
+        &\text{is how this works, which are the things that this thing does that makes this thing to do that thing we . }\\
+        &\text{set up to do. }\\
+        &\text{lets brake it down in peaces. }\\
+
+        \end{aligned}$$
+        
+        <pre><code class="language-hlsl">
+            
+            float x = x;
+            float a = a;
+            float b = b;
+
+            float d = smoothstep(x, a, b);
+            
+        </code></pre>
+        
+        $$\begin{aligned}
+
+        &\text{this is how the smoothstep function look in code, provided by the shading language library. in this case is CG}\\
+        &\text{the standard for Unity, and also the previous version for HLSL, the DirectX shading language for Microsoft.}\\
+        &\text{}\\
+        &\text{The idea right now is to explain what is behind curtains that we could use to explain why the things happen}\\
+        &\text{the way they do.}\\
+        &\text{The question now, what's behind curtains? EASY like cutting butter, just and simple math}\\
+        \end{aligned}$$
+        $$\text{}$$
+
+        $$\text{this is the function represented in mathematical notation}$$
+
+        $$\text{smoothstep}(a, b, x) = S(a, b, x)$$
+
+        $$\\[5ex]$$
+
+        $$\text{}$$
+
+        $$\text{This is the output we want to get from the function}$$
+        $$S( a, b; x) = S = 3t^2 - 2t^3$$    
+
+        $$\\[5ex]$$
+        
+        $$\text{remember that there are multiples ways to get this output our similar ones, not just this way}$$
+        $$\text{We are going to derive this polinomial function later}$$
+        
+        $$\\[5ex]$$
+
+        
+        $$\begin{aligned}
+
+        &\text{Now the question here is how we could define } \quad t \quad \text{ in such a way that fills the gaps for our }\\
+        &\text{function, the polimomial got as primary purpose to make a transition of data}\\
+        &\text{the idea, is to make information plot into this determined field, so we can transition}\\
+        &\text{between data as the name of the function state in a smoothly fashion, but how we can do such thing}\\
+        &\text{now how we could reorganize information from one size end to the other}\\
+        
+        \end{aligned}$$
+
+        $$\\[5ex]$$
+
+        $$\text{that's }$$
+
+
+
+        <!-- $$S_1(t) = 3t^2 - 2t^3$$     -->
+        <!-- $$t = 3t^2 - 2t^3$$     -->
+        $$t = \left(\text{clamp}\left(\frac{x - a}{b - a},\quad 0,\quad 1\right)\right)$$
+        $$t = \text{max}\left(0, \quad\text{min}\left(1, \quad \frac{x - a}{b - a}\right)\right)$$
+        
+        $$\begin{aligned}
+
+        &\text{}\\
+        &\text{}\\
+        &\text{}\\
+        &\text{}\\
+        
+        \end{aligned}$$
+        
+        $$f(x; a, b) = 
+\begin{cases} 
+0 & x \le a \\
+3\left(\frac{x-a}{b-a}\right)^2 - 2\left(\frac{x-a}{b-a}\right)^3 & a < x < b \\
+1 & x \ge b
+\end{cases}$$
+        $$\frac{x - a}{b - a}$$
+        $$\text{smoothstep}(a, b, x) = t^2(3 - 2t), \quad \text{where } t = \text{saturate}\left(\frac{x - a}{b - a}\right)$$
+
+
+
+        $$\frac{d}{dt}(3t^2 - 2t^3) = 6t - 6t^2$$
+        
+</div>        
+
+
+
+<hr>
+<hr>
+<h1 style="font-size: 40px;"><b> Circle </b></h1>
+<br>
+
+<hr>
+<div style = "font-size: 21px">
+    
+    $$\LARGE\text{Draw Cicle main Theory}$$
+</div>        
+<hr>
+
+  
+<div style = "font-size: 21px">
+    
+        <!-- &\bullet\text{POSITION and SV\_POSITION, is the same as the previous TEXCOORD0, but instead for vertexes, so it usually tents to be a  }\\ -->
+    
+        $$\begin{aligned}
+        
+        &\text{The things that we need to set from this moment on is how to place more mathematics in this field, cuz otherwise would be modified }\\
+        &\text{modify each single pixel by hands, and that is basically painting and drawing, so we are not doing neither of thouse things here}\\
+        &\text{the way to make everything work here, is by making math happen, and the best way to make something like that happen is by specifying}\\
+        &\text{equation and detailing more of the functions that we could try to define in order to create more exemplification of this ideas }\\
+        &\text{}\\
+        &\text{the function that we are going to run a lot, and the one that we are going to use really much is going to be the frag functions }\\
+        &\text{the reason why is cuz we are currenctly operating on the plane, or more specific on a plane, and we are going to do such thing}\\
+        &\text{till we get really got at understanding how signal works correctly, we need to understand how we can make use of the signals}\\
+        &\text{and the plane is the best way or place to do such thing.}\\
+        \end{aligned}$$
+        
+    
+        <pre><code class="language-hlsl">
+        
+                fixed4 frag (PixelData i) : SV_Target
+                {
+    
+                    // THIS CODE MEANS
+                    // HOW TO RUN THE PIXELS OF THE SCREEN.
+                    
+                    fixed4 colorWhite = float4(1,1,1,1); // Color white.
+                    fixed4 colorBlack = float4(0,0,0,1); // Color Black.
+    
+                    float2 uv =  i.uv ;
+    
+                
+                    fixed4 col = fixed4(uv.x, uv.y , 0.0, 1.0);
+                
+                    return col;
+                
+                }
+
+        </code></pre>
+        
+</div>
+        
+
+<div style = "font-size: 21px">
+    
+        <!-- &\bullet\text{POSITION and SV\_POSITION, is the same as the previous TEXCOORD0, but instead for vertexes, so it usually tents to be a  }\\ -->
+    
+        $$\begin{aligned}
+        &\text{So in order to make a cirlce by using a equation or more clearer a logical relationship it'll be necessary to think about the }\\
+        &\text{essence of a cirlce, what the in FK Hll, is a circle, simple a cirlce is a stick that got one of its ends stuck }\\
+        &\text{into a poosition in the plane, and the other end rotates pivoting on the other whie the other is stuck. }\\  
+        &\text{}\\
+        &\text{}\\
+        &\text{}\\
+        &\text{}\\
+        &\text{}\\
+        
+        
+        \end{aligned}$$
+    
+        <pre><code class="language-hlsl">
+        
+                fixed4 frag (PixelData i) : SV_Target
+                {
+    
+                    // THIS CODE MEANS
+                    // HOW TO RUN THE PIXELS OF THE SCREEN.
+                    
+                    fixed4 colorWhite = float4(1,1,1,1); // Color white.
+                    fixed4 colorBlack = float4(0,0,0,1); // Color Black.
+    
+                    float2 uv =  i.uv ;
+    
+                
+                    fixed4 col = fixed4(uv.x, uv.y , 0.0, 1.0);
+                
+                    return col;
+                
+                }
+                
+        </code></pre>
+        
+</div>
+
 
 <div style = "font-size: 21px">
     $$\\[5ex]$$
@@ -660,84 +948,15 @@ float4 main(PS_INPUT input) : SV_Target {
 
 </div>        
 
-<!-- <div style="width: 70%; margin: auto; border: 2px solid #555; padding: 15px; border-radius: 8px; margin: 10px 0; text-align: center;"> -->
-<div style="width: 60%; overflow-x: auto; overflow-y: hidden; margin: auto; border: 1px solid #00000000; padding: 10px; border-radius: 8px; box-sizing: border-box;">
-    
-    $$\begin{aligned}
-    &\text{1. The Geometric Setup} \\
-    &\text{Imagine two angles, } \alpha \text{ (which we'll call } x\text{) and } \beta \text{ (which we'll call } h\text{), stacked on top of each other:} \\
-    &\text{Draw angle } x \text{ from the } x\text{-axis.} \\
-    &\text{Draw angle } h \text{ starting from the terminal side of } x\text{.} \\
-    &\text{The total angle from the } x\text{-axis is } (x + h)\text{.} \\
-    &\text{We place a point } P \text{ on the terminal side of the total angle such that the distance from the origin } O \\
-    &\text{ to } P \text{ is 1 unit } (OP = 1)\text{.}
-
-    \\[5ex]
-
-    &\text{2. Identifying the Components} \\
-    &\text{To find } \sin(x + h)\text{, we need the vertical height of point } \\
-    &P \text{ relative to the } x\text{-axis. Let’s drop some perpendicular lines to create right triangles:} \\
-    &\text{Drop a perpendicular from } P \text{ to the terminal side of angle } x \text{ at point } Q\text{.} \\
-    &\text{Drop a perpendicular from } P \text{ to the } x\text{-axis at point } R\text{. } PR \text{ is our goal, because } PR = \sin(x+h)\text{.} \\
-    &\text{Drop a perpendicular from } Q \text{ to the } x\text{-axis at point } S\text{.} \\
-    &\text{Draw a horizontal line from } Q \text{ to the line } PR\text{, hitting it at point } T\text{.} \\
-    &\text{Now, notice that the total height } PR \text{ is composed of two segments:} \\
-    &PR = PT + TR \\
-    &\text{Since } TRQS \text{ is a rectangle, } TR = QS\text{. So:} \\
-    &\sin(x+h) = PT + QS
-    \end{aligned}$$
-
-</div>
-
-<!-- <div style="width: 70%; margin: auto; border: 2px solid #555; padding: 15px; border-radius: 8px; margin: 10px 0; text-align: center;"> -->
-    <div style="width: 70%; overflow-x: auto; overflow-y: hidden; margin: auto; border: 1px solid ##00000000; padding: 10px; border-radius: 8px; box-sizing: border-box;">
-
-    $$\\[5ex]$$
-        
-    $$\begin{aligned}
-    &\text{3. Solving for the Segments} \\
-    &\text{We now look at the two right triangles we've created:} \\
-    &\text{Triangle 1: } \triangle OQP \\
-    &\text{The hypotenuse } OP = 1\text{.} \\
-    &PQ = \sin(h) \\
-    &OQ = \cos(h) \\
-    &\text{Triangle 2: } \triangle OSQ \\
-    &\text{This triangle has angle } x \text{ and hypotenuse } OQ \text{ (which we know is } \cos(h)\text{).} \\
-    &\sin(x) = \frac{QS}{OQ} \implies QS = OQ \sin(x) \\
-    &\text{Substitute } OQ\text{: } QS = \cos(h) \sin(x) \\
-    &\text{Triangle 3: } \triangle TQP \\
-    &\text{This is the clever part. The angle } \angle TPQ \text{ is actually equal to } x \\
-    &\text{ (because its sides are perpendicular to the sides of angle } x\text{).} \\
-    &\cos(x) = \frac{PT}{PQ} \implies PT = PQ \cos(x) \\
-    &\text{Substitute } PQ\text{: } PT = \sin(h) \cos(x)
-    \end{aligned}$$
-    
-    $$\\[5ex]$$
-
-
-
-</div>
-
-
-<div style="width: 100%; overflow-x: auto; overflow-y: hidden; margin: auto; border: 1px solid ##00000000; padding: 10px; border-radius: 8px; box-sizing: border-box;">
-    
-        $$\begin{aligned}
-        &\text{4. Combining the Results} \\
-        &\text{Now we plug our values for } QS \text{ and } PT \text{ back into our original height equation:} \\
-        &\sin(x+h) = PT + QS \\
-        &\sin(x+h) = (\sin(h) \cos(x)) + (\cos(h) \sin(x)) \\
-        &\text{Rearranging for the standard form:} \\
-        &\mathbf{\sin(x+h) = \sin(x)\cos(h) + \cos(x)\sin(h)}
-        \end{aligned}$$
-    
-</div>
 
 
 <div style = "font-size: 21px">
-        $$\\[5ex]$$
-    
-        $$\boxed{\large \quad \mathbf{\sin(x+h) = \sin(x)\cos(h) + \cos(x)\sin(h)}\quad}$$
-    </div>    
+which is the best way to make this thing work correctly, learning how to modify this information correctly
+learning how to modify this values in the best way possible 
+
+
+
+</div>    
 
 
 <br>
