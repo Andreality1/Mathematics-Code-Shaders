@@ -389,13 +389,10 @@ $$\begin{aligned}
 <div style = "font-size: 21px">
 
     $$\begin{aligned}
-
     &\text{What we we need to do now first of all is to explain how to make use of this pixel computers.}\\
     &\text{to do such thing we got to create and environment where we can identify where the computing can happen.}\\
-    &\text{Lets explain all this stages.}\\
-    
+    &\text{Lets explain all this stages.}\\    
     \end{aligned}$$
-
     
     <pre><code class="language-hlsl">
             CGPROGRAM
@@ -407,7 +404,6 @@ $$\begin{aligned}
     </code></pre>
 
     $$\begin{aligned}
-
     &\text{for each pixel and vertex. depending to which type of geometry you are writing them for}\\
     &\bullet \text{\textbf{\large {the "CGPROGRAM"}}, headline tag define the start of the program for the shader, which then is going to run }\\
     &\text{on your GPU, imagine as if you were running your program in your console, but instead of running it in your }\\
@@ -419,7 +415,6 @@ $$\begin{aligned}
     &\bullet\text{\textbf{\large {\#include "UnityCG.cginc"}}, is a library that would allow you to make use of integrated functions and  }\\
     &\text{methods build upon unity, that we are going to use in the future to make uses of the engine which is UNITY, }\\
     &\text{to create layers of abstraction between the different qualities of an already created environment.  }\\
-
     \end{aligned}$$
     
     
@@ -742,7 +737,7 @@ $$\begin{aligned}
         &\text{display of information, in this case we are talking about pixels, but the questions that you maybe are wondering }\\
         &\text{is how this works, which are the things that this thing does that makes this thing to do that thing we . }\\
         &\text{set up to do. }\\
-        &\text{lets brake it down in peaces. }\\
+        &\text{lets brake it down in pieces. }\\
 
         \end{aligned}$$
         
@@ -773,8 +768,6 @@ $$\begin{aligned}
 
         $$\\[5ex]$$
 
-        $$\text{}$$
-
         $$\text{This is the output we want to get from the function}$$
         $$S( a, b; x) = S = 3t^2 - 2t^3$$    
 
@@ -789,47 +782,565 @@ $$\begin{aligned}
         $$\begin{aligned}
 
         &\text{Now the question here is how we could define } \quad t \quad \text{ in such a way that fills the gaps for our }\\
-        &\text{function, the polimomial got as primary purpose to make a transition of data}\\
+        &\text{function, the polimomial got as primary purpose to make a transition of data from one point to the other}\\
         &\text{the idea, is to make information plot into this determined field, so we can transition}\\
-        &\text{between data as the name of the function state in a smoothly fashion, but how we can do such thing}\\
-        &\text{now how we could reorganize information from one size end to the other}\\
+        &\text{between data as the name of the function state in a smoothly fashion, but how we can do such thing.}\\
+        &\text{The output is going to be the polinomial function solution for each t, but how we populate this function ?}\\
+        &\text{now how we could reorganize or reorder information from one size end to the other}\\
         
         \end{aligned}$$
 
         $$\\[5ex]$$
-
-        $$\text{that's }$$
-
-
-
-        <!-- $$S_1(t) = 3t^2 - 2t^3$$     -->
-        <!-- $$t = 3t^2 - 2t^3$$     -->
-        $$t = \left(\text{clamp}\left(\frac{x - a}{b - a},\quad 0,\quad 1\right)\right)$$
-        $$t = \text{max}\left(0, \quad\text{min}\left(1, \quad \frac{x - a}{b - a}\right)\right)$$
+        
         
         $$\begin{aligned}
 
-        &\text{}\\
-        &\text{}\\
-        &\text{}\\
-        &\text{}\\
+        &\text{that's what the clamp function is going to help us do, what we are going to do with the clamp function}\\  
+        &\text{is limit the function bounds so each of the points on one end is map to the other end directly, which means}\\
+        &\text{that for a certain section of the\quad }\mathbb{R} \quad \text{numbers, we are going to map this section}\\
+        &\text{between the section } 0 - 1 \quad \text{of the} \quad \mathbb{R}\quad \text{numbers.}
+        \\[1.5em]
         
         \end{aligned}$$
+
+        $$t = \left(\text{clamp}\left(\frac{x - a}{b - a},\quad 0,\quad 1\right)\right)$$
+        $$t = \text{max}\left(0, \quad\text{min}\left(1, \quad \frac{x - a}{b - a}\right)\right)$$
+
+        $$\begin{aligned}        
+
+        \\[1.5em]
+        &\text{so lets define the first section as:} \\
+        &\bullet\quad 1\text{-}section = f \quad : \mathbb{R} \to [a, b]\\
+        &\text{And the second section as:}\\
+        &\bullet\quad 2\text{-}section = f  \quad : \mathbb{R} \to [0, 1]
+        \\[1.5em]        
+        &\text{So the idea here is to make a map from:}\\
+        &\text{}\quad \mathbb{R} \to [a, b] \implies \mathbb{R} \to [0, 1] \\
+        &\text{Or in other terms:}\\
+        &\quad 1\text{-}section: \mathbb{R} \to [a, b] \quad \implies \quad 2\text{-}section: \mathbb{R} \to [0, 1]
+    
+        \end{aligned}$$
+
+
+        $$\begin{aligned}
+
+        \\[0.5em]        
+        &\text{The way how we do the mapping, besides on the properties of division, which are }\\
+        &\text{How many times the denominator could fit in the numerator, how many denominators elements}\\
+        &\text{are necessary to make equality to the numerator}\\
+
+        \end{aligned}$$
         
-        $$f(x; a, b) = 
-\begin{cases} 
-0 & x \le a \\
-3\left(\frac{x-a}{b-a}\right)^2 - 2\left(\frac{x-a}{b-a}\right)^3 & a < x < b \\
-1 & x \ge b
-\end{cases}$$
+        $$\\[2.0em]$$
+        
+        $$\frac{\text{Numerator}}{\text{Denominator}}$$
+        
+        $$\\[2.0em]$$
+        
         $$\frac{x - a}{b - a}$$
-        $$\text{smoothstep}(a, b, x) = t^2(3 - 2t), \quad \text{where } t = \text{saturate}\left(\frac{x - a}{b - a}\right)$$
 
+        $$\\[3.0em]$$
 
-
-        $$\frac{d}{dt}(3t^2 - 2t^3) = 6t - 6t^2$$
+        $$\text{Lets understand the first section of this division}\\$$
         
-</div>        
+        $${x - a}$$
+    
+           
+        $$\begin{aligned}
+        
+        \\[0.5em]        
+        &\text{So how we could make interpretation or use of the division definition into the current formula, simple}\\
+        &\text{the process we are going to follow is pick the first section of the }\mathbb{R} \text{ that'll be the domain} \\
+        &\text{and identify if the point that we are evaluating is in the segment or not, and if yes, check how far}\\
+        &\text{is the point on the section from the beggining bound of the section.}\\
+        
+        \end{aligned}$$
+
+    </div>
+    
+    
+<img  src="Img/UnitaryMapping.png"  style="display: block; margin: 0 auto; width: 70%;">
+
+<div style = "font-size: 21px">
+
+
+        $$\begin{aligned}
+        &\text{So if the point } ''X'' \text{ from the real numbers } ''X'' \in \mathbb{R} \text{ is } \textbf{BEFORE}\text{ the } ''a'' \text{ bound, which means that}\\
+        \end{aligned}$$
+        $$X < a$$
+        $$ \text{So if we make a substraction}$$
+        $$ for \ all \quad x < a \implies (x - a) = \mathbb{R} < a =  always\;in\ \mathbb{R}^-$$
+        $$\text{which means that the }"X"\text{ point is } \textbf{BEFORE}\text{ the } "a" \text{ bound}\\$$
+
+        $$\\[3.0em]$$
+
+        $$\begin{aligned} 
+        &\text{So if the point } ''X'' \text{ from the real numbers } ''X'' \in \mathbb{R} \text{ is } \textbf{IN} \text{ the } ''a'' \text{ bound, means that}\\
+        \end{aligned}$$
+        $$X = a$$
+        $$ \text{So if we make a substraction}$$
+        $$ for \ all \quad x = a \implies (x - a) = 0 =  always\;in\ 0$$
+        $$\text{which means that the }"X"\text{ point is exactly } \textbf{AT}\text{ the } "a" \text{ bound}\\$$
+ 
+        $$\\[3.0em]$$
+
+        $$\begin{aligned}
+
+        &\text{So if the point } ''X'' \text{ from the real numbers } ''X'' \in \mathbb{R} \text{ is } \textbf{AFTER} \text{ the } ''a'' \text{ bound, which means that}\\
+        
+        \end{aligned}$$
+        $$X > a$$
+        $$ \text{So if we make a substraction}$$
+        $$ for \ all \quad x > a \implies (x - a) = \mathbb{R} > a =  always\;in\ \mathbb{R}^+$$
+        $$\text{which means that the }"X"\text{ point is } \textbf{AFTER}\text{ the } "a" \text{ bound}\\$$
+
+</div>
+<div style = "font-size: 21px">
+        
+        $$\\[3.0em]$$
+    
+        $$\begin{aligned}
+        &\text{Rememeber that also this substraction represent the distance from } "X" \ to\ "a" \text{ independly of the sign}  \\
+        \end{aligned}$$
+        $$\left| a - b \right| = \left| b - a \right|$$
+        
+        
+        $$\\[2.0em]$$
+        $$\\[3.0em]$$
+        $$\text{lets make and example about each situation:}\\$$
+        $$\\[3.0em]$$
+        
+        $$\begin{aligned}
+        &\text{Given the bound } a = 10 \text{ and the point } x = 4: \\
+        &x < a \implies 4 < 10 \\
+        \\
+        &\textbf{1. Subtraction:} \\
+        &x - a = 4 - 10 = -6 \\
+        \\
+        &\textbf{2. Result:} \\
+        &-6 < 0 \implies (x - a) \in \mathbb{R}^- \\
+        \\
+        &\text{Let } a = 10 \text{ and } b = 4 \\
+        \\
+        &\textbf{Left Side: } |a - b| \\
+        &|10 - 4| = |6| = 6 \\
+        \\
+        &\textbf{Right Side: } |b - a| \\
+        &|4 - 10| = |-6| = 6 \\
+        \\
+        &\textbf{Conclusion:} \\
+        &|10 - 4| = |4 - 10| \implies 6 = 6 \\
+        \\
+        &\therefore \text{The point } x \text{ is confirmed to be \textbf{BEFORE} the bound } a.
+        \end{aligned}$$
+        
+        $$\\[3.0em]$$
+
+
+        $$\begin{aligned}
+        &\text{Given the bound } a = 10 \text{ and the point } x = 10: \\
+        &x = a \implies 10 = 10 \\
+        \\
+        &\textbf{1. Subtraction:} \\
+        &x - a = 10 - 10 = 0 \\
+        \\
+        &\textbf{2. Result:} \\
+        &x - a = 0 \implies (x - a) \notin \mathbb{R}^+ \cup \mathbb{R}^- \\
+        \\
+        &\text{Let the bound } a = 10 \text{ and the point } b = 10 \\
+        \\
+        &\textbf{Left Side: } |a - b| \\
+        &|10 - 10| = |0| = 0 \\
+        \\
+        &\textbf{Right Side: } |b - a| \\
+        &|10 - 10| = |0| = 0 \\
+        \\
+        &\textbf{Conclusion:} \\
+        &|10 - 10| = |10 - 10| \implies 0 = 0
+        \\
+        &\therefore \text{The point } x \text{ is confirmed to be exactly \textbf{AT} the bound } a.
+        \end{aligned}$$
+
+</div>
+<div style = "font-size: 21px">
+        
+        $$\\[3.0em]$$
+
+
+        $$\begin{aligned}
+        &\text{Given the bound } a = 10 \text{ and the point } x = 15: \\
+        &x > a \implies 15 > 10 \\
+        \\
+        &\textbf{1. Subtraction:} \\
+        &x - a = 15 - 10 = 5 \\
+        \\
+        &\textbf{2. Result:} \\
+        &5 > 0 \implies (x - a) \in \mathbb{R}^+ \\
+        \\
+        &\text{Let } a = 10 \text{ and } b = 15 \\
+        \\
+        &\textbf{Left Side: } |a - b| \\
+        &|10 - 15| = |-5| = 5 \\
+        \\
+        &\textbf{Right Side: } |b - a| \\
+        &|15 - 10| = |5| = 5 \\
+        \\
+        &\textbf{Conclusion:} \\
+        &|10 - 15| = |15 - 10| \implies 5 = 5
+        \\
+        &\therefore \text{The point } x \text{ is confirmed to be \textbf{AFTER} the bound } a.
+        \end{aligned}$$
+        
+        $$\huge\boxed{x - a}$$
+
+        
+        $$\\[4.0em]$$
+        $$\text{Now what we had define how the numerator of the division works, so lets break down the denominator  }$$
+        $$\frac{x - a}{b - a} \implies \frac{\text{Numerator}}{\text{Denominator}}$$
+        $$\\[2.0em]$$
+
+        $$\begin{aligned}        
+        &\text{What is in reality the operation that in the Denominator is really following, which is in reality the steps that }\\
+        &\text{this substraction is going to do to the entire formula, which are in reality the motions that are going to be }\\
+        &\text{modify in the entire of this equation ann in which way, which are the things that this operation is going to affect }\\
+        &\text{in the entire solution of this equation, how and why.}
+        &\\[2.0em] 
+        \end{aligned}$$
+        
+        $${b - a}$$
+        $$\\[2.0em]$$
+
+        
+        $$\begin{aligned}
+        &\text{We got to define the bounds of the substraccion, so its basically as the previous substraction, but in this case }\\
+        &\text{is extremely necessary to define if the bounds are or } a < b \ or \ a > b \\
+        \end{aligned}$$
+        
+        $$\begin{aligned}        
+        &\text{if the bounds of the denominator are set to  } a < b  \\
+        &\text{then this operation is going to lets us now the distance from position } a \text{ to position } b \text{ in the }\mathbb{R} \\
+        &\text{ this result would always, ALWAYS + be positive } \\        
+        &for all \ a < b \implies (b - a) \in \mathbb{R}^+ \\
+        \end{aligned}$$
+
+</div>
+<div style = "font-size: 21px">
+        
+        $$\\[2.0em]$$
+
+        
+        $$\begin{aligned}        
+        &\text{if the bounds of the denominator are set to  } a > b  \\ 
+        &\text{then this operation is going to lets us now the distance from position } a \text{ to position } b \text{ in the }\mathbb{R} \\
+        &\text{ this result would always, ALWAYS - be negative  } \\
+        &forall \ a > b \implies (b - a) \in \mathbb{R}^- \\
+        \end{aligned}$$
+
+        $$\\[2.0em]$$    
+        $${b - a}$$
+        $$\\[2.0em]$$    
+
+        $$\begin{aligned}        
+        &\text{lets set an example right now as... } a < b \text{ ...so we could check exactly what is happening.} \\ 
+        &\text{ as we konw... }, |b - a|, \text{... if ...} a < b ,\ \text{ for each every substraction we are going to get a positive value } \\
+        &\text{ but the question here is what does this values represent in reality, which is the definition of this substraction, easy,} \\
+        &\text{ the line or bar, size that is going to be our ruler, the thing that allows us to measure things, the unit of measure. } \\
+        \end{aligned}$$
+
+
+</div>
+
+<img  src="Img/UnitaryMappingReal.png"  style="display: block; margin: 0 auto; width: 70%;">
+
+<div style = "font-size: 21px">
+
+        $$\begin{aligned}        
+        &\text{ now you'll be wondering which is exactly the things that we are going to measure, which are the values that we are going to  } \\
+        &\text{ measure, which are the ideas that we need to specify here, so we could understand how we could measure things with a value  } \\
+        &\text{ the idea besides in the expression theory and concepts of DIVISIONS, so lets explain how this sitaution works. } \\
+        \end{aligned}$$
+
+        $${|x-a|}\\$$
+
+        $$\begin{aligned}        
+        &\text{We already know that this expression is going to tell us how far is the }\ x \ \text{ from the }\ a   \\
+        &\text{independly of the sign.} \\
+        \end{aligned}$$
+
+        $${x-a}\\$$
+
+        $$\begin{aligned}        
+        &\text{and this expression is going to provide us with a sign, which is going to tell us if the... } x \text{ ...is before the... } a \\
+        &\text{or if the... } x \text{ ... is after the ... } a \text{ ... position on the line.} \\
+        &\text{if the substraction equals to 0, that means that the... } x \text{ ... is currently at the same spot or position  as... } a \\
+        \end{aligned}$$
+        
+        
+        $$\begin{aligned}        
+        &\text{ and we also know that the difference between... } b - a \text{ ... when... } b > a \text{ ... would always be positive }\\
+        &\text{ and the value that this operation is equal is the distance from... } a \text{ ...to... } b \\
+        \end{aligned}$$
+        
+        
+        $$\begin{aligned}        
+        &\text{So once we had define how the first distance is measure, and we are able to identify on which position of the line the... } x \\
+        &\text{is located, then the question that rise up is how we could use this information, what can we do to make this information }\\
+        &\text{useful, well now the idea is to make use of the information that we just define into something useful.}\\
+        &\text{and usefulness, only appear when we are answering questions, so which is the question here that we want to answer.}\\
+        &\text{the questions here and the theorem that we want to prove is the next one}\\
+        \end{aligned}$$
+
+        $$\\[5ex]$$
+        
+        <!-- $$\ how\ many\ b - a \ are \ in \ x - a  $$         -->
+        $$\large\textbf{how many } \boldsymbol{(b - a)} \textbf{ are in } \boldsymbol{(x - a)} \textbf{ ? }$$
+        $$\\[5ex]$$
+
+        $$\large\boldsymbol{\frac{x - a}{b - a}} = \boldsymbol{\dfrac{\textbf{line to measure}}{\textbf{ruler}}}$$
+        $$\\[5ex]$$
+
+
+
+</div>
+
+<img  src="Img/RulerAndCable.png"  style="display: block; margin: 0 auto; width: 30%;">
+
+<div style = "font-size: 21px">
+
+    
+    $$\begin{aligned}        
+    &\text{so now that we are able to measure how many denominators are in the numerator, then we need to "clamp" }\\
+    &\text{which are going to help us identify or determine which values of... } x - a  \text{ ... are going to be useful for us}\\
+    &\text{in this case we are going to set the values between... } 0 \ \& \  1 \text{ ...which are going to represent the values within the }\\
+    &\text{range of... } b - a \text{ ... which is the unit of measure that is going to help us map the values of... } x \text{ ...to the }\\
+    &\text{range of... } 0 \  \& \ 1 \\
+    &\text{remember that witin the } \mathbb{R} \text{ numbers, exist an infinite number of items, that we are going to use to map from one }\\
+    &\text{representation to the other, or you could also say from one line space to the other line space.}\\
+    \end{aligned}$$
+
+    $$\begin{aligned}
+    &\text{Given: } x = 2, \ a = 10, \ b = 30 \\
+    \\
+    &\textbf{Step 1: Calculate the Numerator (Line to measure)} \\
+    &x - a = 2 - 10 = -8 \\
+    \\
+    &\textbf{Step 2: Calculate the Denominator (Ruler)} \\
+    &b - a = 30 - 10 = 20 \\
+    \\
+    &\textbf{Step 3: Form the Fraction} \\
+    &\frac{x - a}{b - a} = \frac{-8}{20} = -0.4 \\
+    \\
+    &\therefore \text{The result is negative because the point } x \text{ is outside the bound to the left.}
+
+    \\[5ex]
+
+    &\text{Given: } a = 10, \ b = 30, \ x = 10 \\
+    \\
+    &\text{Condition: } x = a \implies 10 = 10 \\
+    \\
+    &\textbf{1. Calculate the Numerator (Line to measure)} \\
+    &x - a = 10 - 10 = 0 \\
+    \\
+    &\textbf{2. Calculate the Denominator (Ruler)} \\
+    &b - a = 30 - 10 = 20 \\
+    \\
+    &\textbf{3. Form the Fraction} \\
+    &\frac{x - a}{b - a} = \frac{0}{20} = 0 \\
+    \\
+    &\therefore \text{The result is exactly \textbf{0} because the point } x \text{ is at the start of the ruler.}
+
+    \\[5ex]
+    
+    &\text{Given: } a = 10, \ b = 30, \ x = 25 \\
+    \\
+    &\text{Condition: } a < x < b \quad (10 < 25 < 30) \\
+    \\
+    &\textbf{1. Calculate the Numerator (Line to measure)} \\
+    &x - a = 25 - 10 = 15 \\
+    \\
+    &\textbf{2. Calculate the Denominator (Ruler)} \\
+    &b - a = 30 - 10 = 20 \\
+    \\
+    &\textbf{3. Form the Fraction} \\
+    &\frac{x - a}{b - a} = \frac{15}{20} = 0.75 \\
+    \\
+    &\therefore \text{The result is a positive decimal } (0.75) \text{ because the point } x \text{ is \textbf{AFTER} } a \text{ but \textbf{WITHIN} the ruler.}
+    
+    \\[5ex]
+
+    &\text{Given: } a = 10, \ b = 30, \ x = 40 \\
+    \\
+    &\text{Condition: } x > b \implies 40 > 30 \\
+    \\
+    &\textbf{1. Calculate the Numerator (Line to measure)} \\
+    &x - a = 40 - 10 = 30 \\
+    \\
+    &\textbf{2. Calculate the Denominator (Ruler)} \\
+    &b - a = 30 - 10 = 20 \\
+    \\
+    &\textbf{3. Form the Fraction} \\
+    &\frac{x - a}{b - a} = \frac{30}{20} = 1.5 \\
+    \\
+    &\therefore \text{The result is \textbf{1.5}} \text{ because the point } x \text{ has exceeded the ruler by } 50\%.
+    \end{aligned}$$
+
+</div>
+
+<div style = "font-size: 21px">
+
+
+    $$\\[5ex]$$
+    
+    $$\begin{aligned}  
+    &\text{Now the next thing would be add the clamp function which is nothing else but a way to set up the bounds from } \\
+    &\text{where we want to number line to be usefull } \\
+    &\text{so this is a simple comparation between which is the maximum and which is the minimum between the result of } \\
+    &\text{the division and the bounds that we are going to set.}\\
+    \end{aligned}$$
+
+    $$\\[5ex]$$
+    
+    $$ruler = \frac{x - a}{b - a}$$
+
+    $$\\[5ex]$$
+
+    $$t = \max(0, \min(1, \ ruler))$$
+
+    $$\\[5ex]$$
+    
+    $$\text{smoothstep}(a, b, x) = S(a, b, x) = S = 3t^2 - 2t^3$$
+ 
+    $$\\[5ex]$$
+
+
+    
+
+</div>
+
+<img  src="Img/FunctionSmoothstep.png"  style="display: block; margin: 0 auto; width: 60%;">
+
+<div style = "font-size: 21px">
+
+        $$\\[5ex]$$
+
+        $$\begin{aligned}
+        &\text{Now the only thing that miss is how to derive the cubic polinomial, which is understand from which place}\\
+        &\text{this formula came from.}\\
+        \end{aligned}$$
+    
+
+        $$\begin{aligned}
+        &\textbf{1. The Constraints} \\
+        &\text{To derive the Smoothstep function for the interval } t \in [0,1], \\
+        &\text{we define four boundary conditions:} \\
+        \\
+        &\begin{aligned}
+        &\text{Start Position:} & S(0) &= 0 \\
+        &\text{End Position:}   & S(1) &= 1 \\
+        &\text{Start Velocity:} & S'(0) &= 0 \\
+        &\text{End Velocity:}   & S'(1) &= 0
+        \end{aligned} \\
+        \\
+        &\textbf{2. The Cubic Derivation} \\
+        &\text{We begin with a general cubic polynomial:} \\
+        &S(t) = at^3 + bt^2 + ct + d \\
+        \\
+        &\text{First, we find its derivative:} \\
+        &S'(t) = 3at^2 + 2bt + c \\
+        \\
+        &\text{Applying the initial constraints } (t=0): \\
+        &S(0) = a(0)^3 + b(0)^2 + c(0) + d = 0 \implies d = 0 \\
+        &S'(0) = 3a(0)^2 + 2b(0) + c = 0 \implies c = 0 \\
+        \\
+        &\text{Applying the boundary constraints } (t=1): \\
+        &S(1) = a(1)^3 + b(1)^2 = 1 \implies a + b = 1 \\
+        &S'(1) = 3a(1)^2 + 2b(1) = 0 \implies 3a + 2b = 0 \\
+        \\
+        &\textbf{3. Solving the System} \\
+        &\text{From the velocity equation:} \\
+        &2b = -3a \implies b = -1.5a \\
+        \\
+        &\text{Substituting } b \text{ into the position equation:} \\
+        &a + (-1.5a) = 1 \\
+        &-0.5a = 1 \implies a = -2 \\
+        \\
+        &\text{Solving for } b: \\
+        &b = -1.5(-2) \implies b = 3 \\
+        \\
+        &\textbf{4. Final Result} \\
+        &\text{Plugging the constants back into the original polynomial, we arrive at:} \\
+        &S(t) = 3t^2 - 2t^3
+        \end{aligned}$$
+
+
+        $$\\[15ex]$$
+                
+        $$\begin{aligned}  
+        &\text{Other way to derive this function is by lerping between two specific functions.} \\
+        
+        \end{aligned}$$
+        $$a = t^2 \quad (Ease\ In)$$
+
+        $$b = 2t - t^2  \quad (Ease\ Out)$$ 
+
+        $$\\[5ex]$$
+        
+        $$\text{lerp}(a, b, t) = a + t(b - a)$$
+
+        $$\\[5ex]$$
+    
+        $$S(t) = \underbrace{t^2}_{a} + t(\underbrace{(2t - t^2)}_{b} - \underbrace{t^2}_{a})$$
+
+        $$\\[5ex]$$
+        
+        $$S(t) = t^2 + t((2t - t^2) - t^2)$$
+        
+        $$\\[5ex]$$
+        
+        $$S(t) = t^2 + t(2t - 2t^2)$$
+
+        $$\\[5ex]$$        
+
+        $$S(t) = t^2 + 2t^2 - 2t^3$$
+
+        $$\\[5ex]$$        
+        
+        $$S(t) = 3t^2 - 2t^3$$
+
+        $$\\[5ex]$$
+    
+</div>
+
+<img  src="Img/LerpSmoothstep.png"  style="display: block; margin: 0 auto; width: 60%;">
+
+
+
+
+<!-- &\text{So once we had define how the first distance is measure, and we are able to identify on which position of the line the... } x \\
+        &\text{is located, then the question that rise up is how we could use this information, what can we do to make this information }\\
+        &\text{useful, well now the idea is to make use of the information that we just define into something useful.}\\
+        &\text{and usefulness, only appear when we are answering questions, so which is the question here that we want to answer.}\\
+        &\text{the questions here and the theorem that we want to prove is the next one}\\ --> 
+        
+        <!-- $$\begin{aligned}         -->
+        
+    
+    <!-- &\text{} \\ -->
+
+    <!-- \end{aligned}$$ -->
+    
+    <!-- &\text{}\\
+    &\text{}\\
+    &\text{}\\
+    &\text{}\\
+    &\text{}\\ -->
+
+<!-- 
+<div style = "font-size: 21px">
+        
+        
+</div>         -->
+
 
 
 
@@ -902,9 +1413,9 @@ $$\begin{aligned}
         &\text{}\\
         &\text{}\\
         &\text{}\\
-        
-        
         \end{aligned}$$
+        
+        
     
         <pre><code class="language-hlsl">
         
@@ -931,19 +1442,11 @@ $$\begin{aligned}
 </div>
 
 
-<div style = "font-size: 21px">
-    $$\\[5ex]$$
 
-    $$\boxed{\large \quad \mathbf{\sin(x+h) = \sin(x)\cos(h) + \cos(x)\sin(h)}\quad}$$
-</div>        
-
-
-<img  src="Img/Inverted_SinAplusB.png"  style="display: block; margin: 0 auto; width: 60%;">
 
 
 <div style = "font-size: 21px">
 
-        <!-- $$\text{1. The Geometric Setup}$$$$\text{Imagine two angles, } \alpha \text{ (which we'll call } x\text{) and } \beta \text{ (which we'll call } h\text{), stacked on top of each other:}$$$$\text{Draw angle } x \text{ from the } x\text{-axis.}$$$$\text{Draw angle } h \text{ starting from the terminal side of } x\text{.}$$$$\text{The total angle from the } x\text{-axis is } (x + h)\text{.}$$$$\text{We place a point } P \text{ on the terminal side of the total angle such that the distance from the origin } O \text{ to } P \text{ is 1 unit } (OP = 1)\text{.}$$ -->
 
 
 </div>        
@@ -995,240 +1498,6 @@ _       _________ _______ __________________ _______
 <hr> -->
 
 <!-- SandwichTheoremColored -->
-<img  src="Img/SandwichTheoremColored.png"  style="display: block; margin: 0 auto; ">
-
-
-<div style = "font-size: 21px">
-
-    $$\\[5ex]$$
-    
-    $$\large\boxed {\lim_{h \to 0} \frac{\sin(h)}{h} = 1}$$
-
-    $$\\[5ex]$$
-    
-    $$\begin{aligned}
-    &\text{\textbf{Geometric Setup}} \\
-    &\text{Consider a unit circle with radius } r = 1 \text{ and an angle } h \text{ where } 0 < h < \frac{\pi}{2}. \\
-    &\text{We define three regions based on this angle:} \\
-    \\
-    &\text{1. \textbf{Small Triangle:}} \text{ vertices at } (0,0), (1,0), \text{ and } (\cos(h), \sin(h)). \\
-    &\text{Area}_{\text{triangle 1}} = \frac{1}{2} \cdot \text{base} \cdot \text{height} = \frac{1}{2} \cdot 1 \cdot \sin(h) = \frac{1}{2}\sin(h) \\
-    \\
-    &\text{2. \textbf{Circular Sector:}} \text{ with central angle } h. \\
-    &\text{Area}_{\text{sector}} = \frac{1}{2} r^2 h = \frac{1}{2} (1)^2 h = \frac{1}{2}h \\
-    \\
-    &\text{3. \textbf{Large Triangle:}} \text{ formed by the base and the tangent line at } (1,0). \\
-    &\text{Area}_{\text{triangle 2}} = \frac{1}{2} \cdot \text{base} \cdot \text{height} = \frac{1}{2} \cdot 1 \cdot \tan(h) = \frac{1}{2}\tan(h)
-    \\[7ex]
-    
-    
-    &\textbf{Establishing the Inequality} \\
-    \\
-    &\text{From the geometry of the unit circle, it is clear that:} 
-    \\[8px]
-
-    &\text{Area}_{\text{triangle 1}} < \text{Area}_{\text{sector}} < \text{Area}_{\text{triangle 2}} 
-    \\[8px]
-    
-    &\text{Substituting the formulas derived above:} 
-    \\[8px]
-    
-    &\frac{1}{2}\sin(h) < \frac{1}{2}h < \frac{1}{2}\tan(h) 
-    \\[8px]
-        
-    &\text{Multiply the entire inequality by } 2 \text{ to simplify:} 
-    \\[5px]
-    
-    &\sin(h) < h < \tan(h)
-    
-    \\[7ex]
-    
-
-    &\text{\textbf{3. Algebraic Manipulation}} \\
-    &\text{Since we are interested in } \frac{\sin(h)}{h}, \text{ we divide the inequality by } \sin(h). \\
-    &\text{Because } h \text{ is in the first quadrant } (0 < h < \frac{\pi}{2}), \sin(h) \text{ is positive, so the} \\
-    &\text{inequality signs do not flip:} \\
-    \\
-    &\frac{\sin(h)}{\sin(h)} < \frac{h}{\sin(h)} < \frac{\tan(h)}{\sin(h)} \\
-    \\
-    &\text{Recalling that } \tan(h) = \frac{\sin(h)}{\cos(h)}, \text{ we get:} \\
-    \\
-    &1 < \frac{h}{\sin(h)} < \frac{1}{\cos(h)}
-
-    \\[7ex]
-    
-    &\textbf{Reciprocal Rule:} \\
-    &\text{When you take the reciprocal of all parts of an inequality where all} \\
-    &\text{terms are positive, the inequality symbols must flip.} \\[1em]
-    &2 < 3 < 4 \\[0.5em]
-    &\frac{1}{2} > \frac{1}{3} > \frac{1}{4}
-
-    \\[7ex]
-    \end{aligned}$$
-
-</div>
-<div style = "font-size: 21px">
-
-
-    $$\begin{aligned}
-    
-    \boxed
-    {
-    \text{The reciprocal of a function is simply } 1 \text{ divided by that function.} \\
-    \text{If you have a function } f(x), \text{ its reciprocal is:} \\[1em]
-    \quad \frac{1}{f(x)} \quad \text{or} \quad [f(x)]^{-1}
-    }
-    \end{aligned}$$
-    
-    $$\\[5ex]$$
-
-</div>    
-<div style = "font-size: 21px">
-    
-
-    $$\begin{aligned}
-    
-    &\text{Now, take the reciprocal of all parts. Taking the reciprocal of} \\
-    &\text{positive terms reverses the inequality signs:} \\
-    \\
-    &1 > \frac{\sin(h)}{h} > \cos(h) \\
-    \\
-    &\text{Or, written more standardly:} \\
-    \\
-    &\cos(h) < \frac{\sin(h)}{h} < 1\\
-    \\
-    &\ {\lim_{h \to 0}cos(h) < \lim_{h \to 0}\frac{\sin(h)}{h} < \lim_{h \to 0} 1}\\
-
-    
-    \\
-    &\text{We now take the limit as } h \to 0 \text{ for the outer functions:} \\
-    \\
-    &\lim_{h \to 0} 1 = 1 \\
-    &\lim_{h \to 0} \cos(h) = \cos(0) = 1 \\   
-    \\
-    &1 \le \lim_{h \to 0} \frac{\sin(h)}{h} \le 1
-    \\[5ex]
-    
-    &\text{Since } \frac{\sin(h)}{h} \text{ is "squeezed" between two functions that both approach } 1 \\
-    &\text{as } h \text{ approaches } 0, \text{ the Squeeze Theorem states that:} \\
-    \\
-    &\boxed{\color{white}{\lim_{h \to 0^+} \frac{\sin(h)}{h} = 1}}
-
-    \end{aligned}$$
-    <!-- $$\lim_{h \to 0} \cos(h) \leq \lim_{h \to 0} \frac{\sin(h)}{h} \leq \lim_{h \to 0} 1$$ -->
-    $$\\[5ex]$$
-    
-</div>
-    
-<!-- 
-<hr>
-<p style="font-size: 30px;"><strong>2# limit</strong></p>
-<hr> -->
-
-
-
-<hr>
-<div style = "font-size: 21px">
-        $$\LARGE\text{Limits \#2}$$
-</div>        
-<hr>
-<br>
-
-<div style = "font-size: 21px">
-
-    $$\boxed{\color{white}{\lim_{h \to 0} \frac{\cos(h) - 1}{h} = 0}}$$
-
-    $$\\[5ex]$$
-    
-    $$\lim_{h \to 0} \frac{\cos(h) - 1}{h} \cdot \frac{\cos(h) + 1}{\cos(h) + 1}$$
-
-    $$\\[5ex]$$
-    
-    $$\lim_{h \to 0} \frac{\cos^2(h) - 1}{h(\cos(h) + 1)}$$
-
-    $$\\[5ex]$$
-    
-    $$\sin^2(h) + \cos^2(h) = 1 \implies \cos^2(h) - 1 = -\sin^2(h)$$
-
-    $$\\[5ex]$$
-
-    $$\lim_{h \to 0} \frac{-\sin^2(h)}{h(\cos(h) + 1)}$$
-
-    $$\\[5ex]$$
-
-    $$\lim_{h \to 0} \left( \frac{\sin(h)}{h} \cdot \frac{-\sin(h)}{\cos(h) + 1} \right)$$
-
-    $$\\[5ex]$$
-
-    $$\lim_{x \to a} [f(x) \cdot g(x)] = \left( \lim_{x \to a} f(x) \right) \cdot \left( \lim_{x \to a} g(x) \right)$$
-
-    $$\\[5ex]$$
-    
-    $$\text{if, }\quad  \lim_{h \to 0} \frac{\sin(h)}{h} = 1$$
-
-    $$\\[5ex]$$
-
-    $$\text{if, } h = 0 \implies \frac{-\sin(0)}{\cos(0) + 1} = \frac{0}{1 + 1} = \frac{0}{2} = 0$$
-
-    $$\\[5ex]$$
-
-    $$(1) \cdot (0) = 0$$
-
-    $$\\[5ex]$$
-    
-    $$\boxed{\lim_{h \to 0} \frac{\cos(h) - 1}{h} = 0}$$
-
-    $$\\[5ex]$$
-    
-</div>    
-
-
-<hr>
-<div style = "font-size: 21px">
-        $$\LARGE\text{Limits \#3}$$
-</div>        
-<hr>
-<br>
-
-<div style = "font-size: 21px">
-    $$\large\boxed{\lim_{h \to 0} \frac{e^h - 1}{h} = 1}$$
-
-    $$\\[5ex]$$
-    
-    $$e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots$$
-
-    $$\\[5ex]$$
-    
-    $$\text{if, } h = x,\quad  e^h = 1 + h + \frac{h^2}{2!} + \frac{h^3}{3!} + \dots$$
-
-    $$\\[5ex]$$
-
-    $$\lim_{h \to 0} \frac{(1 + h + \frac{h^2}{2!} + \frac{h^3}{3!} + \dots) - 1}{h}$$
-
-    $$\\[5ex]$$
-    
-    $$\lim_{h \to 0} \frac{h + \frac{h^2}{2!} + \frac{h^3}{3!} + \dots}{h}$$
-
-    $$\\[5ex]$$
-    
-    $$\lim_{h \to 0} \left( \frac{h}{h} + \frac{h^2}{2!h} + \frac{h^3}{3!h} + \dots \right)$$
-
-    $$\\[5ex]$$
-    
-    $$\lim_{h \to 0} \left( \frac{h}{h} + \frac{h^2}{2!h} + \frac{h^3}{3!h} + \dots \right)$$
-
-    $$\\[5ex]$$
-    
-    $$\lim_{h \to 0} \left( 1 + \frac{h}{2!} + \frac{h^2}{3!} + \dots \right)$$
-
-    $$\\[5ex]$$
-    
-    $$1 + 0 + 0 + \dots = 1$$
-
-    $$\\[5ex]$$
-    
-    $$\boxed{\lim_{h \to 0} \frac{e^h - 1}{h} = 1}  $$
-</div>
     
 <!-- 
     $$\begin{aligned}
