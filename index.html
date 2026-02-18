@@ -761,11 +761,11 @@ $$\begin{aligned}
         
 <pre><code class="language-hlsl">
             
-    float x = x;
     float a = a;
     float b = b;
+    float x = x;
 
-    float d = smoothstep(x, a, b);
+    float d = smoothstep(a, b, x);
             
 </code></pre>
         
@@ -1503,7 +1503,7 @@ $$\begin{aligned}
 
 $$\begin{aligned}
 &\text{when we multiply by 2, what we are really doing is extending the dimension of the points that we are   }\\
-&\text{going to fit into this plane, so instead of fitting from} 0\ to\ 1\ \text{we are making use from }\\
+&\text{going to fit into this plane, so instead of fitting from}\ 0\ to\ 1\ \text{we are setting up use from }\\
 &0\ to\ 2\\
 &\text{}\\
 \end{aligned}$$
@@ -1518,8 +1518,8 @@ $$\begin{aligned}
     
 $$\begin{aligned}
 &\text{Now the that we had extend the size of the plane or more specifly the first cuadrant of the cartesian plane}\\
-&\text{what we are going to do is center the origin in the middle of the plane, and to so such thing we just need}\\
-&\text{to substract } -1.0 \text{ to the entire set of point so we end up with a general cartesian plane, on our} \\
+&\text{what we are going to do is center the origin in the middle of the plane, and to do such thing we just need}\\
+&\text{to substract } -1.0 \text{ to the entire set of points so we end up with a general cartesian plane, on our} \\
 &\text{PLANE!, that we could use to plot functions and geometric things.}\\
 \end{aligned}$$
         
